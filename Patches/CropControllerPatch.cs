@@ -11,9 +11,9 @@ namespace FoodPlus.Patches
     {
 
         [HarmonyPatch(typeof(CropController), nameof(CropController.CropGrowthTimes)), HarmonyPostfix]
-        public static void AddCustomCropTypes(ITEM_TYPE ___seedType, ref float __result)
+        private static void AddCustomCropTypes(ITEM_TYPE __seedType, ref float __result)
         {
-            if (___seedType is
+            if (__seedType is
                 ITEM_TYPE.SEED or
                 ITEM_TYPE.SEED_PUMPKIN or
                 ITEM_TYPE.SEED_COTTON or
@@ -27,11 +27,11 @@ namespace FoodPlus.Patches
                 return;
             }
 
-            if (___seedType == IchorSeeds) __result = 24f;
-            if (___seedType == LettuceSeeds) __result = 12f;
-            if (___seedType == OnionBulb) __result = 15f;
-            if (___seedType == TomatoSeeds) __result = 15f;
-            if (___seedType == WheatSeeds) __result = 9f;
+            if (__seedType == IchorSeeds) __result = 24f;
+            if (__seedType == LettuceSeeds) __result = 12f;
+            if (__seedType == OnionBulb) __result = 15f;
+            if (__seedType == TomatoSeeds) __result = 15f;
+            if (__seedType == WheatSeeds) __result = 9f;
         }
     }
 }
