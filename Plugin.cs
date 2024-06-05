@@ -19,23 +19,6 @@ namespace FoodPlus
         public const string PluginName = "FoodPlus";
         public const string PluginVer = "1.0.0";
 
-        /* Seeds */
-        public static InventoryItem.ITEM_TYPE IchorSeeds;
-        public static InventoryItem.ITEM_TYPE LettuceSeeds;
-        public static InventoryItem.ITEM_TYPE OnionBulb;
-        public static InventoryItem.ITEM_TYPE TomatoSeeds;
-        public static InventoryItem.ITEM_TYPE WheatSeeds;
-
-        /* Fruit */
-        public static InventoryItem.ITEM_TYPE DeathPepper;
-        public static InventoryItem.ITEM_TYPE Lettuce;
-        public static InventoryItem.ITEM_TYPE Onion;
-        public static InventoryItem.ITEM_TYPE Tomato;
-        public static InventoryItem.ITEM_TYPE Wheat;
-
-        /* processed/cooked*/
-        public static InventoryItem.ITEM_TYPE Bread;
-
         internal static ManualLogSource Log;
         internal readonly static Harmony Harmony = new(PluginGuid);
 
@@ -50,20 +33,7 @@ namespace FoodPlus
         private void OnEnable()
         {
             Harmony.PatchAll();
-
-            IchorSeeds   = CustomItemManager.Add(new IchorSeeds() );
-            LettuceSeeds = CustomItemManager.Add(new TomatoSeeds());
-            OnionBulb    = CustomItemManager.Add(new TomatoSeeds());
-            TomatoSeeds  = CustomItemManager.Add(new TomatoSeeds());
-            WheatSeeds   = CustomItemManager.Add(new WheatSeeds() );
-
-            DeathPepper  = CustomItemManager.Add(new DeathPepper());
-            Lettuce      = CustomItemManager.Add(new Lettuce()    );
-            Onion        = CustomItemManager.Add(new Onion()      );
-            Tomato       = CustomItemManager.Add(new Tomato()     );
-            Wheat        = CustomItemManager.Add(new Wheat()      );
-
-            Bread        = CustomItemManager.Add(new Bread()      );
+            ItemRegistery.AddAllItems();
         }
 
         private void OnDisable()
@@ -74,21 +44,30 @@ namespace FoodPlus
 
         public void Update()
         {
+            // debug
+
+            //give self items
             if (Input.GetKeyDown(KeyCode.J))
             {
-                Inventory.AddItem(IchorSeeds,   5);
-                Inventory.AddItem(LettuceSeeds, 5);
-                Inventory.AddItem(OnionBulb,    5);
-                Inventory.AddItem(TomatoSeeds,  5);
-                Inventory.AddItem(WheatSeeds,   5);
+                Inventory.AddItem(ItemRegistery.IchorSeeds,   5);
+                Inventory.AddItem(ItemRegistery.LettuceSeeds, 5);
+                Inventory.AddItem(ItemRegistery.OnionBulb,    5);
+                Inventory.AddItem(ItemRegistery.TomatoSeeds,  5);
+                Inventory.AddItem(ItemRegistery.WheatSeeds,   5);
 
-                Inventory.AddItem(DeathPepper,  5);
-                Inventory.AddItem(Lettuce,      5);
-                Inventory.AddItem(Onion,        5);
-                Inventory.AddItem(Tomato,       5);
-                Inventory.AddItem(Wheat,        5);
+                Inventory.AddItem(ItemRegistery.DeathPepper,  5);
+                Inventory.AddItem(ItemRegistery.Lettuce,      5);
+                Inventory.AddItem(ItemRegistery.Onion,        5);
+                Inventory.AddItem(ItemRegistery.Tomato,       5);
+                Inventory.AddItem(ItemRegistery.Wheat,        5);
 
-                Inventory.AddItem(Bread,        5);
+                Inventory.AddItem(ItemRegistery.Bread,        5);
+            }
+
+            //give self rainbow poop for testing
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
             }
         }
     }

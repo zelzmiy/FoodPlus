@@ -24,7 +24,7 @@ namespace FoodPlus.Items
 
         public override int RefineryInputQty => 5;
 
-        public override InventoryItem.ITEM_TYPE RefineryInput => Plugin.Wheat;
+        public override InventoryItem.ITEM_TYPE RefineryInput => ItemRegistery.Wheat;
 
         public override float CustomRefineryDuration => 32f;
 }

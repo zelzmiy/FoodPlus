@@ -8,7 +8,7 @@ namespace FoodPlus.Items.Plants
         public override string InternalName => "Lettuce_Seeds";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.SEEDS;
         public override string LocalizedName() { return "Lettuce Seeds"; }
-        public override string LocalizedDescription() { return "A precursor to bnnuy"; }
+        public override string LocalizedDescription() { return "the road to bnnuy"; }
 
         //used for inventory icons
         public override Sprite InventoryIcon => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "seeds", "lettuce_seeds.png"));
