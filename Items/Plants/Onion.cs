@@ -10,8 +10,9 @@ namespace FoodPlus.Items.Plants
     {
         public override string InternalName => "Onion_Plant";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.CAULIFLOWER;
-        public override string LocalizedName() { return "Onion"; }
-        public override string LocalizedDescription() { return "It's got layers"; }
+        public override string LocalizedName() => "Onion"; 
+        public override string LocalizedLore() => "It's got layers";
+        public override string LocalizedDescription() => "An Ingrediant in foriegn dishes";
 
         //used for inventory icons
         public override Sprite InventoryIcon => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "plants", "onion.png"));

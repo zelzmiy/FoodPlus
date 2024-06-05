@@ -7,8 +7,9 @@ namespace FoodPlus.Items.Plants
     {
         public override string InternalName => "Wheat_Plant";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.CAULIFLOWER;
-        public override string LocalizedName() { return "Wheat"; }
-        public override string LocalizedDescription() { return "Golden Grain"; }
+        public override string LocalizedName() => "Wheat";
+        public override string LocalizedLore() => "Golden Grain";
+        public override string LocalizedDescription() => "A crafting ingrediant for high-carb diet";
 
         //used for inventory icons
         public override Sprite InventoryIcon => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "plants", "wheat.png"));

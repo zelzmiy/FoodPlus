@@ -7,8 +7,9 @@ namespace FoodPlus.Items.Plants
     {
         public override string InternalName => "DeathPepper_Plant";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.CAULIFLOWER;
-        public override string LocalizedName() { return "Death Pepper"; }
-        public override string LocalizedDescription() { return "As Spicy As Hell"; }
+        public override string LocalizedName() => "Death Pepper";
+        public override string LocalizedLore() => "As Spicy As Hell";
+        public override string LocalizedDescription() => "An Ingrediant in evil dishes";
 
         //used for inventory icons
         public override Sprite InventoryIcon => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "plants", "pepper.png"));

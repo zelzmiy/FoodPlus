@@ -7,8 +7,9 @@ namespace FoodPlus.Items.Plants
     {
         public override string InternalName => "Lettuce_Plant";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.BLACK_GOLD;
-        public override string LocalizedName() { return "Lettuce"; }
-        public override string LocalizedDescription() { return "Eat your leafy greens"; }
+        public override string LocalizedName() => "Lettuce";
+        public override string LocalizedLore() => "Eat your leafy greens";
+        public override string LocalizedDescription() => "An Ingrediant in invigorating dishes";
 
         //used for inventory icons
         public override Sprite InventoryIcon => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "plants", "lettuce.png"));

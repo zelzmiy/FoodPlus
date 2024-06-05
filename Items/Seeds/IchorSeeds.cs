@@ -7,8 +7,9 @@ namespace FoodPlus.Items.Plants
     {
         public override string InternalName => "Ichor_Seeds";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.SEEDS;
-        public override string LocalizedName() { return "Ichor Seeds"; }
-        public override string LocalizedDescription() { return "A precursor the pain"; }
+        public override string LocalizedName() => "Ichor Seeds";
+        public override string LocalizedLore() => "A precursor the pain";
+        public override string LocalizedDescription() => "Plant this in a <color=yellow>Farm Plot</color>";
 
         //used for inventory icons
         public override Sprite InventoryIcon => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "seeds", "ichor_seeds.png"));
