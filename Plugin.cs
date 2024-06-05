@@ -17,8 +17,15 @@ namespace FoodPlus
         public const string PluginName = "FoodPlus";
         public const string PluginVer = "1.0.0";
 
+        /* Seeds */
         public static InventoryItem.ITEM_TYPE WheatSeeds;
+        public static InventoryItem.ITEM_TYPE TomatoSeeds;
+
+        /* Fruit */
         public static InventoryItem.ITEM_TYPE Wheat;
+        public static InventoryItem.ITEM_TYPE Tomato;
+
+        /* processed/cooked*/
         public static InventoryItem.ITEM_TYPE Bread;
 
         internal static ManualLogSource Log;
@@ -36,7 +43,9 @@ namespace FoodPlus
         {
             Harmony.PatchAll();
             WheatSeeds = CustomItemManager.Add(new WheatSeeds());
+            Bread = CustomItemManager.Add(new TomatoSeeds());
             Wheat = CustomItemManager.Add(new Wheat());
+            Bread = CustomItemManager.Add(new Tomato());
             Bread = CustomItemManager.Add(new Bread());
         }
 
@@ -50,9 +59,10 @@ namespace FoodPlus
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
-                LogInfo("gave player loot!");
-                Inventory.AddItem(Wheat, 5);
                 Inventory.AddItem(WheatSeeds, 5);
+                Inventory.AddItem(TomatoSeeds, 5);
+                Inventory.AddItem(Wheat, 5);
+                Inventory.AddItem(Tomato, 5);
                 Inventory.AddItem(Bread, 5);
             }
         }
