@@ -7,6 +7,7 @@ namespace FoodPlus.Items.Plants
     {
         public override string InternalName => "Lettuce_Plant";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.BLACK_GOLD;
+        public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
         public override string LocalizedName() => "Lettuce";
         public override string LocalizedLore() => "Eat your leafy greens";
         public override string LocalizedDescription() => "An Ingrediant in invigorating dishes";

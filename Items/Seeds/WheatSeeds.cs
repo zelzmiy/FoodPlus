@@ -7,6 +7,7 @@ namespace FoodPlus.Items.Seeds
     {
         public override string InternalName => "Wheat_Seeds";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.SEEDS;
+        public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.ITEM;
         public override string LocalizedName() => "Wheat Seeds";
         public override string LocalizedLore() => "The begining of everything";
         public override string LocalizedDescription() => "Plant this in a <color=yellow>Farm Plot</color>";
@@ -18,6 +19,5 @@ namespace FoodPlus.Items.Seeds
         public override Sprite Sprite => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "seeds", "wheat_seeds.png"));
         public override bool IsSeed => true;
         public override bool IsPlantable => true;
-
     }
 }

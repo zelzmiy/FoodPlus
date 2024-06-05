@@ -7,6 +7,7 @@ namespace FoodPlus.Items.Seeds
     {
         public override string InternalName => "Tomato_Seeds";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.SEEDS;
+        public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.ITEM;
         public override string LocalizedName() =>"Tomato Seeds"; 
         public override string LocalizedLore() => "A precursor to movie criticism";
         public override string LocalizedDescription() => "Plant this in a <color=yellow>Farm Plot</color>";

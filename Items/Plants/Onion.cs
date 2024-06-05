@@ -10,6 +10,7 @@ namespace FoodPlus.Items.Plants
     {
         public override string InternalName => "Onion_Plant";
         public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.CAULIFLOWER;
+        public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
         public override string LocalizedName() => "Onion"; 
         public override string LocalizedLore() => "It's got layers";
         public override string LocalizedDescription() => "An Ingrediant in foriegn dishes";
