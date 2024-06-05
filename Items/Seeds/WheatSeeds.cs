@@ -1,7 +1,7 @@
 ﻿using COTL_API.CustomInventory;
 using System.IO;
 
-namespace FoodPlus.Items
+namespace FoodPlus.Items.Plants
 {
     internal class WheatSeeds : CustomInventoryItem
     {
@@ -11,10 +11,10 @@ namespace FoodPlus.Items
         public override string LocalizedDescription() { return "The begining of everything"; }
 
         //used for inventory icons
-        public override Sprite InventoryIcon => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets","seeds", "wheat_seeds.png"));
+        public override Sprite InventoryIcon => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "seeds", "wheat_seeds.png"));
 
         //used for spawning object in the world
-        public override Sprite Sprite => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets","seeds" , "wheat_seeds.png"));
+        public override Sprite Sprite => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "seeds", "wheat_seeds.png"));
         public override bool IsSeed => true;
         public override bool IsPlantable => true;
 

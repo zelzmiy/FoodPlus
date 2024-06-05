@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FoodPlus.Items
+namespace FoodPlus.Items.Plants
 {
     internal class Tomato : CustomInventoryItem
     {

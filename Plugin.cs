@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Linq;
 using System;
 using FoodPlus.Items;
+using FoodPlus.Items.Seeds;
+using FoodPlus.Items.Plants;
 
 namespace FoodPlus
 {
@@ -18,12 +20,18 @@ namespace FoodPlus
         public const string PluginVer = "1.0.0";
 
         /* Seeds */
-        public static InventoryItem.ITEM_TYPE WheatSeeds;
+        public static InventoryItem.ITEM_TYPE IchorSeeds;
+        public static InventoryItem.ITEM_TYPE LettuceSeeds;
+        public static InventoryItem.ITEM_TYPE OnionBulb;
         public static InventoryItem.ITEM_TYPE TomatoSeeds;
+        public static InventoryItem.ITEM_TYPE WheatSeeds;
 
         /* Fruit */
-        public static InventoryItem.ITEM_TYPE Wheat;
+        public static InventoryItem.ITEM_TYPE DeathPepper;
+        public static InventoryItem.ITEM_TYPE Lettuce;
+        public static InventoryItem.ITEM_TYPE Onion;
         public static InventoryItem.ITEM_TYPE Tomato;
+        public static InventoryItem.ITEM_TYPE Wheat;
 
         /* processed/cooked*/
         public static InventoryItem.ITEM_TYPE Bread;
@@ -42,11 +50,20 @@ namespace FoodPlus
         private void OnEnable()
         {
             Harmony.PatchAll();
-            WheatSeeds = CustomItemManager.Add(new WheatSeeds());
-            Bread = CustomItemManager.Add(new TomatoSeeds());
-            Wheat = CustomItemManager.Add(new Wheat());
-            Bread = CustomItemManager.Add(new Tomato());
-            Bread = CustomItemManager.Add(new Bread());
+
+            IchorSeeds   = CustomItemManager.Add(new IchorSeeds() );
+            LettuceSeeds = CustomItemManager.Add(new TomatoSeeds());
+            OnionBulb    = CustomItemManager.Add(new TomatoSeeds());
+            TomatoSeeds  = CustomItemManager.Add(new TomatoSeeds());
+            WheatSeeds   = CustomItemManager.Add(new WheatSeeds() );
+
+            DeathPepper  = CustomItemManager.Add(new DeathPepper());
+            Lettuce      = CustomItemManager.Add(new Lettuce()    );
+            Onion        = CustomItemManager.Add(new Onion()      );
+            Tomato       = CustomItemManager.Add(new Tomato()     );
+            Wheat        = CustomItemManager.Add(new Wheat()      );
+
+            Bread        = CustomItemManager.Add(new Bread()      );
         }
 
         private void OnDisable()
@@ -59,11 +76,19 @@ namespace FoodPlus
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
-                Inventory.AddItem(WheatSeeds, 5);
-                Inventory.AddItem(TomatoSeeds, 5);
-                Inventory.AddItem(Wheat, 5);
-                Inventory.AddItem(Tomato, 5);
-                Inventory.AddItem(Bread, 5);
+                Inventory.AddItem(IchorSeeds,   5);
+                Inventory.AddItem(LettuceSeeds, 5);
+                Inventory.AddItem(OnionBulb,    5);
+                Inventory.AddItem(TomatoSeeds,  5);
+                Inventory.AddItem(WheatSeeds,   5);
+
+                Inventory.AddItem(DeathPepper,  5);
+                Inventory.AddItem(Lettuce,      5);
+                Inventory.AddItem(Onion,        5);
+                Inventory.AddItem(Tomato,       5);
+                Inventory.AddItem(Wheat,        5);
+
+                Inventory.AddItem(Bread,        5);
             }
         }
     }

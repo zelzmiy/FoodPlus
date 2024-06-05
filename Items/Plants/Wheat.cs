@@ -1,7 +1,7 @@
 ﻿using COTL_API.CustomInventory;
 using System.IO;
 
-namespace FoodPlus.Items
+namespace FoodPlus.Items.Plants
 {
     internal class Wheat : CustomInventoryItem
     {
