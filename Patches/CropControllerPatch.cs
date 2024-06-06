@@ -7,12 +7,14 @@ using static FoodPlus.Items.ItemRegistery;
 
 namespace FoodPlus.Patches
 {
+    [HarmonyPatch]
     internal static class CropControllerPatch
     {
 
         [HarmonyPatch(typeof(CropController), nameof(CropController.CropGrowthTimes)), HarmonyPostfix]
-        private static void AddCustomCropTypes(ITEM_TYPE __seedType, ref float __result)
+        private static void AddCustomCropTypes(object[] __args, ref float __result)
         {
+            ITEM_TYPE __seedType = (ITEM_TYPE)__args[0];
             if (__seedType is
                 ITEM_TYPE.SEED or
                 ITEM_TYPE.SEED_PUMPKIN or

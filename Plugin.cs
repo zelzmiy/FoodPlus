@@ -28,12 +28,12 @@ namespace FoodPlus
         {
             Log = Logger;
             PluginPath = Path.GetDirectoryName(Info.Location);
+            ItemRegistery.AddAllItems();
         }
 
         private void OnEnable()
         {
-            Harmony.PatchAll();
-            ItemRegistery.AddAllItems();
+            Harmony.PatchAll();    
         }
 
         private void OnDisable()
