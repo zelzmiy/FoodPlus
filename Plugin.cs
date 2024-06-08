@@ -7,6 +7,7 @@ using System;
 using FoodPlus.Items;
 using FoodPlus.Items.Seeds;
 using FoodPlus.Items.Plants;
+using UnityEngine.SceneManagement;
 
 namespace FoodPlus
 {
@@ -33,13 +34,23 @@ namespace FoodPlus
 
         private void OnEnable()
         {
-            Harmony.PatchAll();    
+            Harmony.PatchAll();
+            SceneManager.sceneLoaded += OnCultLoaded;
         }
 
         private void OnDisable()
         {
             Harmony.UnpatchSelf();
             LogInfo($"Unloaded {PluginName}!");
+        }
+
+        public void OnCultLoaded(Scene scene, LoadSceneMode mode) 
+        {
+            if(scene.name != "Base Biome 1")
+                return;
+
+            LogInfo("LOADING CULT SCENE!!! TIME FOR NRE!!!");
+            CustomCropControllers.IntitalizeControllers();
         }
 
         public void Update()

@@ -11,40 +11,22 @@ namespace FoodPlus
     internal class CustomCropControllers
     {
 
-        public static CropController IchorCropController = new()
-        {
-            SeedType = ItemRegistery.IchorSeeds,
-            CropStates = IchorGameObjects
-        };
+        public static void IntitalizeControllers()
+        { 
+            GameObject tempObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            tempObject.SetActive(false);
 
-        public static CropController LettuceCropController = new()
-        {
-            SeedType = ItemRegistery.LettuceSeeds,
-            CropStates = LettuceGameObjects
-        };
-        public static CropController OnionCropController = new()
-        {
-            SeedType = ItemRegistery.OnionBulb,
-            CropStates = OnionGameObjects
-        };
-        public static CropController TomatoCropController = new()
-        {
-            SeedType = ItemRegistery.TomatoSeeds,
-            CropStates = TomatoGameObjects
-        };
-        public static CropController WheatCropController = new()
-        {
-            SeedType = ItemRegistery.Wheat,
-            CropStates = WheatGameObjects
-            
-        };
+            WheatCropController = tempObject.AddComponent<CropController>();
+            WheatCropController.SeedType = ItemRegistery.WheatSeeds;
+            WheatCropController.CropStates = WheatGameObjects;
+            WheatCropController.BumperCropObject = tempObject;
+            WheatCropController.GrowRateIcons = tempObject;
+        }
 
-        private static List<GameObject> IchorGameObjects = new(4);
-        private static List<GameObject> LettuceGameObjects = new(4);
-        private static List<GameObject> OnionGameObjects = new(4);
-        private static List<GameObject> TomatoGameObjects = new(4);
+        public static CropController WheatCropController;
+
         // if hell exists, this is what it looks lke
-        public static List<GameObject> WheatGameObjects =
+        private static List<GameObject> WheatGameObjects =
         [
             CustomPrefabManager.CreatePlacementObjectFor(new PlantStructure("Wheat_0", TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "structures", "wheat_0.png")))),
             CustomPrefabManager.CreatePlacementObjectFor(new PlantStructure("Wheat_1", TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "structures", "wheat_1.png")))),

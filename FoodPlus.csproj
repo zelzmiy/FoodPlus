@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <AssemblyName>FoodPlus</AssemblyName>
         <AssemblyVersion>1.0.0</AssemblyVersion>
@@ -11,7 +10,8 @@
 
         <OutputPath Condition=" '$(SolutionDir)' != '' ">$(SolutionDir)bin\$(Configuration)\$(MSBuildProjectName)\</OutputPath>
         <OutputPath Condition=" '$(SolutionDir)' == '' ">$(ProjectDir)bin\$(Configuration)\$(MSBuildProjectName)\</OutputPath>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Cult of the Lamb\BepInEx\plugins\FoodPlus\Plugins</OutputPath>
+      <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
 
     <ItemGroup>
@@ -27,10 +27,11 @@
     <ItemGroup>
         <PackageReference Include="CultOfTheLamb.GameLibs" Version="1.3.3.344-r.0" />
     </ItemGroup>
-
+    
     <ItemGroup>
       <Reference Include="COTL_API">
         <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cult of the Lamb\BepInEx\plugins\xhayper-COTL_API-0.2.2\plugins\io.github.xhayper.COTL_API\COTL_API.dll</HintPath>
+        <Private>false</Private>
       </Reference>
     </ItemGroup>
 
