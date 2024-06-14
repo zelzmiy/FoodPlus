@@ -39,7 +39,7 @@ public class ItemRegistery
         Bread = CustomItemManager.Add(new Bread());
     }
 
-    private static void AddPlants()
+    private static void AddSeeds()
     {
         IchorSeeds = CustomItemManager.Add(new IchorSeeds());
         LettuceSeeds = CustomItemManager.Add(new LettuceSeeds());
@@ -48,7 +48,7 @@ public class ItemRegistery
         WheatSeeds = CustomItemManager.Add(new WheatSeeds());
     }
 
-    private static void AddSeeds()
+    private static void AddPlants()
     {
         DeathPepper = CustomItemManager.Add(new DeathPepper());
         Lettuce = CustomItemManager.Add(new Lettuce());
