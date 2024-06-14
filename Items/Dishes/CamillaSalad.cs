@@ -1,9 +1,11 @@
 ﻿using COTL_API.CustomInventory;
-using System.IO;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace FoodPlus.Items.Plants;
+namespace FoodPlus.Items.Dishes;
 
-internal class Wheat : CustomInventoryItem
+internal class CamillaSalad : CustomInventoryItem
 {
     public override string InternalName => "Wheat_Plant";
     public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.CAULIFLOWER;
@@ -17,5 +19,4 @@ internal class Wheat : CustomInventoryItem
 
     //used for spawning object in the world
     public override Sprite Sprite => TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "plants", "wheat.png"));
-
 }
