@@ -6,26 +6,31 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using static InventoryItem;
+using static COTL_API.CustomInventory.CustomItemManager;
+
 namespace FoodPlus.Items;
 
 public class ItemRegistery
 {
     /* Seeds */
-    public static InventoryItem.ITEM_TYPE IchorSeeds;
-    public static InventoryItem.ITEM_TYPE LettuceSeeds;
-    public static InventoryItem.ITEM_TYPE OnionBulb;
-    public static InventoryItem.ITEM_TYPE TomatoSeeds;
-    public static InventoryItem.ITEM_TYPE WheatSeeds;
+    public static ITEM_TYPE IchorSeeds;
+    public static ITEM_TYPE LettuceSeeds;
+    public static ITEM_TYPE OnionBulb;
+    public static ITEM_TYPE TomatoSeeds;
+    public static ITEM_TYPE WheatSeeds;
 
     /* Fruit */
-    public static InventoryItem.ITEM_TYPE DeathPepper;
-    public static InventoryItem.ITEM_TYPE Lettuce;
-    public static InventoryItem.ITEM_TYPE Onion;
-    public static InventoryItem.ITEM_TYPE Tomato;
-    public static InventoryItem.ITEM_TYPE Wheat;
+    public static ITEM_TYPE DeathPepper;
+    public static ITEM_TYPE Lettuce;
+    public static ITEM_TYPE Onion;
+    public static ITEM_TYPE Tomato;
+    public static ITEM_TYPE Wheat;
 
     /* processed/cooked*/
-    public static InventoryItem.ITEM_TYPE Bread;
+    public static ITEM_TYPE Bread;
+    public static ITEM_TYPE CamillaSalad;
+    public static List<ITEM_TYPE> AllMeals = [];
 
     public static void AddAllItems()
     {
@@ -36,24 +41,29 @@ public class ItemRegistery
 
     private static void AddDishes()
     {
-        Bread = CustomItemManager.Add(new Bread());
+        Bread = Add(new Bread());
+        CamillaSalad = Add(new CamillaSalad());
+
+        AllMeals.Add(CamillaSalad);
+
+		CookingData.TryDiscoverRecipe(CamillaSalad);
     }
 
     private static void AddSeeds()
     {
-        IchorSeeds = CustomItemManager.Add(new IchorSeeds());
-        LettuceSeeds = CustomItemManager.Add(new LettuceSeeds());
-        OnionBulb = CustomItemManager.Add(new OnionBulb());
-        TomatoSeeds = CustomItemManager.Add(new TomatoSeeds());
-        WheatSeeds = CustomItemManager.Add(new WheatSeeds());
+        IchorSeeds = Add(new IchorSeeds());
+        LettuceSeeds = Add(new LettuceSeeds());
+        OnionBulb = Add(new OnionBulb());
+        TomatoSeeds = Add(new TomatoSeeds());
+        WheatSeeds = Add(new WheatSeeds());
     }
 
     private static void AddPlants()
     {
-        DeathPepper = CustomItemManager.Add(new DeathPepper());
-        Lettuce = CustomItemManager.Add(new Lettuce());
-        Onion = CustomItemManager.Add(new Onion());
-        Tomato = CustomItemManager.Add(new Tomato());
-        Wheat = CustomItemManager.Add(new Wheat());
+        DeathPepper = Add(new DeathPepper());
+        Lettuce = Add(new Lettuce());
+        Onion = Add(new Onion());
+        Tomato = Add(new Tomato());
+        Wheat = Add(new Wheat());
     }
 }

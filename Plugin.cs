@@ -8,6 +8,7 @@ using FoodPlus.Items;
 using FoodPlus.Items.Seeds;
 using FoodPlus.Items.Plants;
 using UnityEngine.SceneManagement;
+using COTL_API.CustomLocalization;
 
 namespace FoodPlus;
 
@@ -27,66 +28,80 @@ public class Plugin : BaseUnityPlugin
 
 	private void Awake()
 	{
-	Log = Logger;
-	PluginPath = Path.GetDirectoryName(Info.Location);
-	ItemRegistery.AddAllItems();
+		Log = Logger;
+		PluginPath = Path.GetDirectoryName(Info.Location);
+
+		string localizationPath = Path.Combine(PluginPath, "Assets", "Localization.language");
+		CustomLocalizationManager.LoadLocalization("English", localizationPath);
+		ItemRegistery.AddAllItems();
 	}
 
 	private void OnEnable()
 	{
-	Harmony.PatchAll();
-	SceneManager.sceneLoaded += OnCultLoaded;
+		Harmony.PatchAll();
+		SceneManager.sceneLoaded += OnCultLoaded;
 	}
 
 	private void OnDisable()
 	{
-	Harmony.UnpatchSelf();
-	LogInfo($"Unloaded {PluginName}!");
+		Harmony.UnpatchSelf();
+		LogInfo($"Unloaded {PluginName}!");
 	}
 
 	public void OnCultLoaded(Scene scene, LoadSceneMode mode)
 	{
-	if (scene.name != "Base Biome 1")
-		return;
+		if (scene.name != "Base Biome 1")
+			return;
 
-	LogInfo("LOADING CULT SCENE!!! TIME FOR NRE!!!");
-	CustomCropControllers.IntitalizeControllers();
+		LogInfo("LOADING CULT SCENE!!! TIME FOR NRE!!!");
+		CustomCropControllers.IntitalizeControllers();
 	}
 
 	public void Update()
 	{
-	// debug
+		// debug
 
-	//give self items
-	if (Input.GetKeyDown(KeyCode.J))
-	{
-	Inventory.AddItem(ItemRegistery.IchorSeeds, 5);
-	Inventory.AddItem(ItemRegistery.LettuceSeeds, 5);
-	Inventory.AddItem(ItemRegistery.OnionBulb, 5);
-	Inventory.AddItem(ItemRegistery.TomatoSeeds, 5);
-	Inventory.AddItem(ItemRegistery.WheatSeeds, 5);
+		//give self items
+		if (Input.GetKeyDown(KeyCode.J))
+		{
+			Inventory.AddItem(ItemRegistery.IchorSeeds, 5);
+			Inventory.AddItem(ItemRegistery.LettuceSeeds, 5);
+			Inventory.AddItem(ItemRegistery.OnionBulb, 5);
+			Inventory.AddItem(ItemRegistery.TomatoSeeds, 5);
+			Inventory.AddItem(ItemRegistery.WheatSeeds, 5);
 
-	Inventory.AddItem(ItemRegistery.DeathPepper, 5);
-	Inventory.AddItem(ItemRegistery.Lettuce, 5);
-	Inventory.AddItem(ItemRegistery.Onion, 5);
-	Inventory.AddItem(ItemRegistery.Tomato, 5);
-	Inventory.AddItem(ItemRegistery.Wheat, 5);
+			Inventory.AddItem(ItemRegistery.DeathPepper, 5);
+			Inventory.AddItem(ItemRegistery.Lettuce, 5);
+			Inventory.AddItem(ItemRegistery.Onion, 5);
+			Inventory.AddItem(ItemRegistery.Tomato, 5);
+			Inventory.AddItem(ItemRegistery.Wheat, 5);
 
-	Inventory.AddItem(ItemRegistery.Bread, 5);
-	}
+			Inventory.AddItem(ItemRegistery.Bread, 5);
+		}
 
-	if (Input.GetKeyDown(KeyCode.Y))
-	{
-	foreach (InventoryItem.ITEM_TYPE item in Enum.GetValues(typeof(InventoryItem.ITEM_TYPE)))
-	{
-	Inventory.SetItemQuantity((int)item, 50);
-	}
-	}
+		if (Input.GetKeyDown(KeyCode.Y))
+		{
+			foreach (InventoryItem.ITEM_TYPE item in Enum.GetValues(typeof(InventoryItem.ITEM_TYPE)))
+			{
+				Inventory.SetItemQuantity((int)item, 50);
+			}
+		}
 
-	//give self rainbow poop for testing
-	if (Input.GetKeyDown(KeyCode.F))
-	{
-	Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
-	}
+		//give self rainbow poop for testing
+		if (Input.GetKeyDown(KeyCode.F))
+		{
+			Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Keypad1))
+		{
+			InventoryItem.Spawn(ItemRegistery.CamillaSalad, 1, Vector3.zero);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Keypad2))
+		{
+			//InventoryItem.Spawn(ItemRegistery.Bread, 1, Vector3.zero);
+			InventoryItem.Spawn(ItemRegistery.Bread, 1, Vector3.zero);
+		}
 	}
 }

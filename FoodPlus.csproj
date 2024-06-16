@@ -40,4 +40,12 @@
       </Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <EditorConfigFiles Remove="C:\Users\zelzm\GitHub\FoodPlus\.editorconfig" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="C:\Users\zelzm\GitHub\FoodPlus\.editorconfig" />
+    </ItemGroup>
+
 </Project>
