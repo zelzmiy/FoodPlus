@@ -11,28 +11,28 @@ namespace FoodPlus.Patches;
 internal static class CropControllerPatch
 {
 
-	[HarmonyPatch(typeof(CropController), nameof(CropController.CropGrowthTimes)), HarmonyPostfix]
-	private static void AddCustomCropTypes(object[] __args, ref float __result)
-	{
-	ITEM_TYPE __seedType = (ITEM_TYPE)__args[0];
-	if (__seedType is
-		ITEM_TYPE.SEED or
-		ITEM_TYPE.SEED_PUMPKIN or
-		ITEM_TYPE.SEED_COTTON or
-		ITEM_TYPE.SEED_GRAPES or
-		ITEM_TYPE.SEED_BEETROOT or
-		ITEM_TYPE.SEED_CAULIFLOWER or
-		ITEM_TYPE.SEED_HOPS or
-		ITEM_TYPE.SEED_MUSHROOM or
-		ITEM_TYPE.SEED_SOZO)
-	{
-	return;
-	}
+	//[HarmonyPatch(typeof(CropController), nameof(CropController.CropGrowthTimes)), HarmonyPostfix]
+	//private static void AddCustomCropTypes(object[] __args, ref float __result)
+	//{
+	//ITEM_TYPE __seedType = (ITEM_TYPE)__args[0];
+	//if (__seedType is
+	//	ITEM_TYPE.SEED or
+	//	ITEM_TYPE.SEED_PUMPKIN or
+	//	ITEM_TYPE.SEED_COTTON or
+	//	ITEM_TYPE.SEED_GRAPES or
+	//	ITEM_TYPE.SEED_BEETROOT or
+	//	ITEM_TYPE.SEED_CAULIFLOWER or
+	//	ITEM_TYPE.SEED_HOPS or
+	//	ITEM_TYPE.SEED_MUSHROOM or
+	//	ITEM_TYPE.SEED_SOZO)
+	//{
+	//return;
+	//}
 
-	if (__seedType == IchorSeeds) __result = 24f;
-	if (__seedType == LettuceSeeds) __result = 12f;
-	if (__seedType == OnionBulb) __result = 15f;
-	if (__seedType == TomatoSeeds) __result = 15f;
-	if (__seedType == WheatSeeds) __result = 9f;
-	}
+	//if (__seedType == IchorSeeds) __result = 24f;
+	//if (__seedType == LettuceSeeds) __result = 12f;
+	//if (__seedType == OnionBulb) __result = 15f;
+	//if (__seedType == TomatoSeeds) __result = 15f;
+	//if (__seedType == WheatSeeds) __result = 9f;
+	//}
 }

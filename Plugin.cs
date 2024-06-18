@@ -54,7 +54,7 @@ public class Plugin : BaseUnityPlugin
 			return;
 
 		LogInfo("LOADING CULT SCENE!!! TIME FOR NRE!!!");
-		CustomCropControllers.IntitalizeControllers();
+		//CustomCropControllers.IntitalizeControllers();
 	}
 
 	public void Update()
@@ -91,17 +91,6 @@ public class Plugin : BaseUnityPlugin
 		if (Input.GetKeyDown(KeyCode.F))
 		{
 			Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
-		}
-
-		if (Input.GetKeyDown(KeyCode.Keypad1))
-		{
-			InventoryItem.Spawn(ItemRegistery.CamillaSalad, 1, Vector3.zero);
-		}
-		
-		if (Input.GetKeyDown(KeyCode.Keypad2))
-		{
-			//InventoryItem.Spawn(ItemRegistery.Bread, 1, Vector3.zero);
-			InventoryItem.Spawn(ItemRegistery.Bread, 1, Vector3.zero);
 		}
 	}
 }
