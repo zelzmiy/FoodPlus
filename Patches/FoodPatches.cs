@@ -3,8 +3,12 @@ using FoodPlus.Items.Dishes;
 using Socket.Newtonsoft.Json;
 using src.UI.InfoCards;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UIElements;
 using static CookingData;
 using static InventoryItem;
@@ -73,6 +77,8 @@ public class CookingDataPatches
 [HarmonyPatch]
 public class FoodRelatedPatches
 {
+	private static MethodInfo _info => typeof(Resources).GetMethod(nameof(Resources.Load));
+
 	[HarmonyPatch(typeof(RecipeInfoCard), nameof(RecipeInfoCard.Configure)), HarmonyPrefix]
 	public static void AddCustomStarRating(RecipeInfoCard __instance, ITEM_TYPE config)
 	{
@@ -81,9 +87,71 @@ public class FoodRelatedPatches
 			__instance._starFills[index].SetActive(satationLevel >= index + 1);
 	}
 
-	[HarmonyPatch(typeof(Resources), nameof(Resources.Load)), HarmonyPostfix]
-	public static void Resource(string path)
-	{ 
-		LogInfo(path);
+	[HarmonyPatch(typeof(ItemPickUp), nameof(ItemPickUp.GetItemPickUpObject)), HarmonyPostfix]
+	public static void GetCorrectMealObject(ref GameObject __result, ITEM_TYPE type)
+	{
+		if (type is not ITEM_TYPE.MEAL or
+					ITEM_TYPE.MEALS or
+					ITEM_TYPE.MEAL_BAD_FISH or
+					ITEM_TYPE.MEAL_BAD_MEAT or
+					ITEM_TYPE.MEAL_BAD_MIXED or
+					ITEM_TYPE.MEAL_BERRIES or
+					ITEM_TYPE.MEAL_BURNED or
+					ITEM_TYPE.MEAL_DEADLY or
+					ITEM_TYPE.MEAL_EGG or
+					ITEM_TYPE.MEAL_FOLLOWER_MEAT or
+					ITEM_TYPE.MEAL_GOOD_FISH or
+					ITEM_TYPE.MEAL_GRASS or
+					ITEM_TYPE.MEAL_GREAT or
+					ITEM_TYPE.MEAL_GREAT_FISH or
+					ITEM_TYPE.MEAL_GREAT_MEAT or
+					ITEM_TYPE.MEAL_GREAT_MIXED or
+					ITEM_TYPE.MEAL_MEAT or
+					ITEM_TYPE.MEAL_MEDIUM_MIXED or
+					ITEM_TYPE.MEAL_MEDIUM_VEG or
+					ITEM_TYPE.MEAL_MUSHROOMS or
+					ITEM_TYPE.MEAL_POOP or
+					ITEM_TYPE.MEAL_ROTTEN or
+					ITEM_TYPE.MEAL_SPICY)
+			return;
+
+		GameObject _obj = new();
+		GameManager.GetInstance().StartCoroutine(Plugin.GetOrLoadAsset(GetMealObjectPath(type), delegate (GameObject obj) 
+		{ 
+			_obj = obj;
+		}));
+
+		__result = _obj; // idk
+
+	}
+
+	public static string GetMealObjectPath(ITEM_TYPE item)
+	{
+		return item switch
+		{
+			ITEM_TYPE.MEAL => "Assets/Prefabs/Structures/Other/Meal.prefab",
+			ITEM_TYPE.MEALS => "Assets/Prefabs/Structures/Other/Meals.prefab",
+			ITEM_TYPE.MEAL_BAD_FISH => "Assets/Prefabs/Structures/Other/Meal Bad Fish.prefab",
+			ITEM_TYPE.MEAL_BAD_MEAT => "Assets/Prefabs/Structures/Other/Meal Bad Meat.prefab",
+			ITEM_TYPE.MEAL_BAD_MIXED => "Assets/Prefabs/Structures/Other/Meal Bad Mixed.prefab",
+			ITEM_TYPE.MEAL_BERRIES => "Assets/Prefabs/Structures/Other/Meal Berries.prefab",
+			ITEM_TYPE.MEAL_BURNED => "Assets/Prefabs/Structures/Other/Meal Burned.prefab",
+			ITEM_TYPE.MEAL_DEADLY => "Assets/Prefabs/Structures/Other/Meal Deadly.prefab",
+			ITEM_TYPE.MEAL_EGG => "Assets/Prefabs/Structures/Other/Meal Egg.prefab",
+			ITEM_TYPE.MEAL_FOLLOWER_MEAT => "Assets/Prefabs/Structures/Other/Meal Follower Meat.prefab",
+			ITEM_TYPE.MEAL_GOOD_FISH => "Assets/Prefabs/Structures/Other/Meal Good Fish.prefab",
+			ITEM_TYPE.MEAL_GRASS => "Assets/Prefabs/Structures/Other/Meal Grass.prefab",
+			ITEM_TYPE.MEAL_GREAT => "Assets/Prefabs/Structures/Other/Meal Great.prefab",
+			ITEM_TYPE.MEAL_GREAT_FISH => "Assets/Prefabs/Structures/Other/Meal Great Fish.prefab",
+			ITEM_TYPE.MEAL_GREAT_MEAT => "Assets/Prefabs/Structures/Other/Meal Great Meat.prefab",
+			ITEM_TYPE.MEAL_GREAT_MIXED => "Assets/Prefabs/Structures/Other/Meal Great Mixed.prefab",
+			ITEM_TYPE.MEAL_MEAT => "Assets/Prefabs/Structures/Other/Meal Good.prefab",
+			ITEM_TYPE.MEAL_MEDIUM_MIXED => "Assets/Prefabs/Structures/Other/Meal Medium Mixed.prefab",
+			ITEM_TYPE.MEAL_MEDIUM_VEG => "Assets/Prefabs/Structures/Other/Meal Medium Veg.prefab",
+			ITEM_TYPE.MEAL_MUSHROOMS => "Assets/Prefabs/Structures/Other/Meal Mushrooms.prefab",
+			ITEM_TYPE.MEAL_POOP => "Assets/Prefabs/Structures/Other/Meal Poop.prefab",
+			ITEM_TYPE.MEAL_SPICY => "Assets/Prefabs/Structures/Other/Meal Spicy.prefab",
+			_ => null
+		};
 	}
 }

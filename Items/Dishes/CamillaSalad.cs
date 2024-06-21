@@ -10,7 +10,7 @@ namespace FoodPlus.Items.Dishes;
 internal class CamillaSalad : CustomInventoryItem
 {
     public override string InternalName => "Camilla_Salad";
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
+    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL_BERRIES;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Camilla Salad";
     public override string LocalizedLore() => "Medbay in a bowl";

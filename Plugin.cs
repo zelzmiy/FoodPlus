@@ -9,6 +9,10 @@ using FoodPlus.Items.Seeds;
 using FoodPlus.Items.Plants;
 using UnityEngine.SceneManagement;
 using COTL_API.CustomLocalization;
+using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using FoodPlus.Patches;
 
 namespace FoodPlus;
 
@@ -53,7 +57,7 @@ public class Plugin : BaseUnityPlugin
 		if (scene.name != "Base Biome 1")
 			return;
 
-		LogInfo("LOADING CULT SCENE!!! TIME FOR NRE!!!");
+		GameManager.GetInstance().StartCoroutine(GetOrLoadAsset(FoodRelatedPatches.GetMealObjectPath(InventoryItem.ITEM_TYPE.MEAL_BERRIES), null));
 		//CustomCropControllers.IntitalizeControllers();
 	}
 
@@ -81,16 +85,43 @@ public class Plugin : BaseUnityPlugin
 
 		if (Input.GetKeyDown(KeyCode.Y))
 		{
-			foreach (InventoryItem.ITEM_TYPE item in Enum.GetValues(typeof(InventoryItem.ITEM_TYPE)))
-			{
-				Inventory.SetItemQuantity((int)item, 50);
-			}
+			InventoryItem.Spawn(InventoryItem.ITEM_TYPE.MEAL_EGG, 3, new Vector3(0,0,0));
 		}
 
 		//give self rainbow poop for testing
 		if (Input.GetKeyDown(KeyCode.F))
 		{
 			Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
+		}
+	}
+
+	// this is just ObjectPool.SpawnIE but worse
+	public static IEnumerator<GameObject> GetOrLoadAsset(string path, Action<GameObject> callback)
+	{
+		if (ObjectPool.instance.loadedAddressables.ContainsKey(path))
+		{
+			while (ObjectPool.instance.loadedAddressables[path].Result == null)
+			{
+				yield return null;
+			}
+			if (ObjectPool.instance.loadedAddressables[path].Status != AsyncOperationStatus.Failed)
+			{
+				callback?.Invoke(ObjectPool.instance.loadedAddressables[path].Result);
+			}
+			else
+			{
+				Debug.Log(("OBJECT POOL, failed addressable: " + path).Colour(Color.red));
+			}
+		}
+		else
+		{
+			AsyncOperationHandle<GameObject> value = Addressables.LoadAssetAsync<GameObject>(path);
+			ObjectPool.instance.loadedAddressables.Add(path, value);
+			value.Completed += delegate (AsyncOperationHandle<GameObject> obj)
+			{
+				ObjectPool.instance.loadedAddressables[path] = obj;
+				callback?.Invoke(ObjectPool.instance.loadedAddressables[path].Result);
+			};
 		}
 	}
 }
