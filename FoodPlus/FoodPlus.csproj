@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+        <Guid>xyz.zelzmiy.FoodPlus</Guid>
+        <Product>FoodPlus</Product>
+        <Title>A Food Mod For Cult Of The Lamb</Title>
+        <Description>A mod that adds various drinks, meals, and crops to Cult Of The Lamb</Description>
+        <PackageProjectUrl>https://github.com/zelzmiy/FoodPlus</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/zelzmiy/FoodPlus</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <Import Project="../FoodPlus.Common.props"/>
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+        <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+        <PackageReference Include="UnityEngine.Modules" Version="2019.4.40" IncludeAssets="compile" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cult of the Lamb\Cult Of The Lamb_Data\Managed\Assembly-CSharp.dll</HintPath>
+		  <private>false</private>
+		</Reference>
+        <Reference Include="COTL_API">
+          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cult of the Lamb\BepInEx\plugins\io.github.xhayper.COTL_API\COTL_API.dll</HintPath>
+		  <private>false</private>
+		</Reference>
+        <Reference Include="UnifyLibrary">
+            <HintPath>..\lib\UnifyLibrary.dll</HintPath>
+        </Reference>
+
+        <None Include="../README.md" Pack="true" PackagePath="/"/>
+        <None Include="../LICENSE" Pack="true" PackagePath="/"/>
+    </ItemGroup>
+
+</Project>

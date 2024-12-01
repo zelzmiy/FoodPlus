@@ -1,0 +1,11 @@
+{
+  "namespace": "xyz.zelzmiy.foodplus",
+  "name": "FoodPlus",
+  "description": "Adds new seeds and new dishes",
+  "version_number": "1.0.0",
+  "dependencies": [
+    "BepInEx-BepInExPack_CultOfTheLamb-5.4.21",
+    "API_dev-COTL_API-0.2.6"
+  ],
+  "website_url": "https://github.com/zelzmiy/FoodPlus"
+}
