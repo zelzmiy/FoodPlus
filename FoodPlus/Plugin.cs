@@ -33,4 +33,41 @@ public class Plugin : BaseUnityPlugin
         Harmony.UnpatchSelf();
         LogInfo($"Unloaded {PluginName}!");
     }
+
+    // public void Update()
+    // {
+    //     // debug
+    //
+    //     //give self items
+    //     if (Input.GetKeyDown(KeyCode.J))
+    //     {
+    //         Inventory.AddItem(ItemRegistery.IchorSeeds, 5);
+    //         Inventory.AddItem(ItemRegistery.LettuceSeeds, 5);
+    //         Inventory.AddItem(ItemRegistery.OnionBulb, 5);
+    //         Inventory.AddItem(ItemRegistery.TomatoSeeds, 5);
+    //         Inventory.AddItem(ItemRegistery.WheatSeeds, 5);
+    //
+    //         Inventory.AddItem(ItemRegistery.DeathPepper, 5);
+    //         Inventory.AddItem(ItemRegistery.Lettuce, 5);
+    //         Inventory.AddItem(ItemRegistery.Onion, 5);
+    //         Inventory.AddItem(ItemRegistery.Tomato, 5);
+    //         Inventory.AddItem(ItemRegistery.Wheat, 5);
+    //
+    //         Inventory.AddItem(ItemRegistery.Bread, 5);
+    //     }
+    //
+    //     if (Input.GetKeyDown(KeyCode.Y))
+    //     {
+    //         foreach (InventoryItem.ITEM_TYPE item in Enum.GetValues(typeof(InventoryItem.ITEM_TYPE)))
+    //         {
+    //             Inventory.SetItemQuantity((int)item, 50);
+    //         }
+    //     }
+    //
+    //     //give self rainbow poop for testing
+    //     if (Input.GetKeyDown(KeyCode.F))
+    //     {
+    //         Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
+    //     }
+    // }
 }
