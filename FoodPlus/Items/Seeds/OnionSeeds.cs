@@ -4,29 +4,28 @@ using FoodPlus.Items.Ingrediants;
 
 namespace FoodPlus.Items.Seeds;
 
-internal class WheatSeeds : CustomCrop
+internal class OnionSeeds : CustomCrop
 {
-    public override string InternalName => "Wheat_Seeds";
+    public override string InternalName => "Onion_Seeds";
     public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.SEEDS;
     public override InventoryItem.ITEM_CATEGORIES ItemCategory => InventoryItem.ITEM_CATEGORIES.SEEDS;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.ITEM;
-    public override string LocalizedName() => "Wheat Seeds";
-    public override string LocalizedLore() => "The beginning of everything";
+    public override string LocalizedName() => "Onion Bulb";
+    public override string LocalizedLore() => "The beginning of tears";
     public override string LocalizedDescription() => "Plant this in a <color=yellow>Farm Plot</color>";
 
     //used for inventory icons
     public override Sprite InventoryIcon => Sprite;
 
     //used for spawning object in the world
-    public override Sprite Sprite => CreateSprite(SeedsPath, "Wheat_Seeds.png");
+    public override Sprite Sprite => CreateSprite(SeedsPath, "Onion_Bulb.png");
     
     public override List<Sprite> CropStates { get; } =
     [
-        CreateSprite(CropsPath, "Wheat", "wheat_0.png"),
-        CreateSprite(CropsPath, "Wheat", "wheat_1.png"),
-        CreateSprite(CropsPath, "Wheat", "wheat_2.png"),
-        CreateSprite(CropsPath, "Wheat", "wheat_3.png"),
-        CreateSprite(CropsPath, "Wheat", "wheat_harvest.png"),
+        CreateSprite(CropsPath, "Onion", "onion_0.png"),
+        CreateSprite(CropsPath, "Onion", "onion_1.png"),
+        CreateSprite(CropsPath, "Onion", "onion_2.png"),
+        CreateSprite(CropsPath, "Onion", "onion_harvest.png"),
     ];
 
     public override float CropGrowthTime => 9f;
@@ -34,9 +33,9 @@ internal class WheatSeeds : CustomCrop
     
     public override List<InventoryItem.ITEM_TYPE> HarvestResult =>
     [
-        ItemRegistry.Get((nameof(Wheat))),
-        ItemRegistry.Get(nameof(WheatSeeds)),
+        ItemRegistry.Get((nameof(Onion))),
+        ItemRegistry.Get(nameof(OnionSeeds)),
     ];
-    public override Vector2Int CropCountToDropRange => new(8, 15);
-    public override string HarvestText => "Pick <color=#CACB39>Wheat</color>";
+    public override Vector2Int CropCountToDropRange => new(6, 10);
+    public override string HarvestText => "Harvest <color=#cc72f2>Onion</color>";
 }

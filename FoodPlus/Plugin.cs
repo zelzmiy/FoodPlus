@@ -1,4 +1,9 @@
+using System;
 using System.IO;
+using FoodPlus.Items;
+using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Seeds;
+using FoodPlus.MealEffects;
 
 namespace FoodPlus;
 
@@ -25,6 +30,8 @@ public class Plugin : BaseUnityPlugin
     private void OnEnable()
     {
         Harmony.PatchAll();
+        FoodEffectRegistry.RegisterFoodEffects();
+        ItemRegistry.RegisterItems();
         LogInfo($"Loaded {PluginName}!");
     }
 
@@ -34,40 +41,47 @@ public class Plugin : BaseUnityPlugin
         LogInfo($"Unloaded {PluginName}!");
     }
 
-    // public void Update()
-    // {
-    //     // debug
-    //
-    //     //give self items
-    //     if (Input.GetKeyDown(KeyCode.J))
-    //     {
-    //         Inventory.AddItem(ItemRegistery.IchorSeeds, 5);
-    //         Inventory.AddItem(ItemRegistery.LettuceSeeds, 5);
-    //         Inventory.AddItem(ItemRegistery.OnionBulb, 5);
-    //         Inventory.AddItem(ItemRegistery.TomatoSeeds, 5);
-    //         Inventory.AddItem(ItemRegistery.WheatSeeds, 5);
-    //
-    //         Inventory.AddItem(ItemRegistery.DeathPepper, 5);
-    //         Inventory.AddItem(ItemRegistery.Lettuce, 5);
-    //         Inventory.AddItem(ItemRegistery.Onion, 5);
-    //         Inventory.AddItem(ItemRegistery.Tomato, 5);
-    //         Inventory.AddItem(ItemRegistery.Wheat, 5);
-    //
-    //         Inventory.AddItem(ItemRegistery.Bread, 5);
-    //     }
-    //
-    //     if (Input.GetKeyDown(KeyCode.Y))
-    //     {
-    //         foreach (InventoryItem.ITEM_TYPE item in Enum.GetValues(typeof(InventoryItem.ITEM_TYPE)))
-    //         {
-    //             Inventory.SetItemQuantity((int)item, 50);
-    //         }
-    //     }
-    //
-    //     //give self rainbow poop for testing
-    //     if (Input.GetKeyDown(KeyCode.F))
-    //     {
-    //         Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
-    //     }
-    // }
+#if DEBUG
+
+
+    public void Update()
+    {
+        // debug
+
+        //give self items
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Inventory.AddItem(ItemRegistry.Get(nameof(WheatSeeds)), 5);
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Inventory.AddItem(ItemRegistry.Get(nameof(Bread)), 25);
+
+            Inventory.AddItem(ItemRegistry.Get(nameof(DeathPepper)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(Onion)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(Tomato)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(Wheat)), 25);
+
+            Inventory.AddItem(ItemRegistry.Get(nameof(IchorSeeds)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(OnionSeeds)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(TomatoSeeds)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(WheatSeeds)), 25);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            foreach (InventoryItem.ITEM_TYPE value in Enum.GetValues(typeof(InventoryItem.ITEM_TYPE)))
+            {
+                Inventory.SetItemQuantity((int)value, 100);
+            }
+        }
+
+        //give self rainbow poop for testing
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
+        }
+    }
 }
+#endif

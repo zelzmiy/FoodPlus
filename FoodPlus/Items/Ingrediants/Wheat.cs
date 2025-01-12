@@ -1,11 +1,11 @@
-using System.IO;
 using COTL_API.CustomInventory;
+using FoodPlus.Items.Seeds;
 
 namespace FoodPlus.Items.Ingrediants;
 
 public class Wheat : CustomInventoryItem
 {
-    public override string InternalName { get; } = "Wheat";
+    public override string InternalName => "Wheat";
     
     public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.CAULIFLOWER;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
@@ -17,6 +17,7 @@ public class Wheat : CustomInventoryItem
     public override Sprite InventoryIcon => Sprite;
 
     //used for spawning object in the world
-    public override Sprite Sprite => 
-        TextureHelper.CreateSpriteFromPath(Path.Combine(Plugin.PluginPath, "Assets", "plants", "wheat.png"));
+    public override Sprite Sprite => CreateSprite(IngredientsPath, "Wheat.png");
+
+    public override InventoryItem.ITEM_TYPE SeedType => ItemRegistry.Get(nameof(WheatSeeds));
 }

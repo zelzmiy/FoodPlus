@@ -4,29 +4,29 @@ using FoodPlus.Items.Ingrediants;
 
 namespace FoodPlus.Items.Seeds;
 
-internal class WheatSeeds : CustomCrop
+internal class IchorSeeds : CustomCrop
 {
-    public override string InternalName => "Wheat_Seeds";
+    public override string InternalName => "Ichor_Seeds";
     public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.SEEDS;
     public override InventoryItem.ITEM_CATEGORIES ItemCategory => InventoryItem.ITEM_CATEGORIES.SEEDS;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.ITEM;
-    public override string LocalizedName() => "Wheat Seeds";
-    public override string LocalizedLore() => "The beginning of everything";
+    public override string LocalizedName() => "Ichor Seeds";
+    public override string LocalizedLore() => "The beginning of evil";
     public override string LocalizedDescription() => "Plant this in a <color=yellow>Farm Plot</color>";
 
     //used for inventory icons
     public override Sprite InventoryIcon => Sprite;
 
     //used for spawning object in the world
-    public override Sprite Sprite => CreateSprite(SeedsPath, "Wheat_Seeds.png");
+    public override Sprite Sprite => CreateSprite(SeedsPath, "Ichor_Seeds.png");
     
     public override List<Sprite> CropStates { get; } =
     [
-        CreateSprite(CropsPath, "Wheat", "wheat_0.png"),
-        CreateSprite(CropsPath, "Wheat", "wheat_1.png"),
-        CreateSprite(CropsPath, "Wheat", "wheat_2.png"),
-        CreateSprite(CropsPath, "Wheat", "wheat_3.png"),
-        CreateSprite(CropsPath, "Wheat", "wheat_harvest.png"),
+        CreateSprite(CropsPath, "Ichor", "pepper_0.png"),
+        CreateSprite(CropsPath, "Ichor", "pepper_1.png"),
+        CreateSprite(CropsPath, "Ichor", "pepper_2.png"),
+        CreateSprite(CropsPath, "Ichor", "pepper_3.png"),
+        CreateSprite(CropsPath, "Ichor", "pepper_harvest.png"),
     ];
 
     public override float CropGrowthTime => 9f;
@@ -34,9 +34,9 @@ internal class WheatSeeds : CustomCrop
     
     public override List<InventoryItem.ITEM_TYPE> HarvestResult =>
     [
-        ItemRegistry.Get((nameof(Wheat))),
-        ItemRegistry.Get(nameof(WheatSeeds)),
+        ItemRegistry.Get((nameof(DeathPepper))),
+        ItemRegistry.Get(nameof(IchorSeeds)),
     ];
-    public override Vector2Int CropCountToDropRange => new(8, 15);
-    public override string HarvestText => "Pick <color=#CACB39>Wheat</color>";
+    public override Vector2Int CropCountToDropRange => new(6, 10);
+    public override string HarvestText => "Harvest <color=#5D1D1D>Death Peppers</color>";
 }
