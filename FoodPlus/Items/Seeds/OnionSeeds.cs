@@ -28,14 +28,14 @@ internal class OnionSeeds : CustomCrop
         CreateSprite(CropsPath, "Onion", "onion_harvest.png"),
     ];
 
-    public override float CropGrowthTime => 9f;
-    public override float PickingTime => 1.5f;
+    public override float CropGrowthTime => 10f;
+    public override float PickingTime => 2f;
     
     public override List<InventoryItem.ITEM_TYPE> HarvestResult =>
     [
         ItemRegistry.Get((nameof(Onion))),
         ItemRegistry.Get(nameof(OnionSeeds)),
     ];
-    public override Vector2Int CropCountToDropRange => new(6, 10);
+    public override Vector2Int CropCountToDropRange => new(1, 4);
     public override string HarvestText => "Harvest <color=#cc72f2>Onion</color>";
 }

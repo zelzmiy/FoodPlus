@@ -29,14 +29,14 @@ internal class IchorSeeds : CustomCrop
         CreateSprite(CropsPath, "Ichor", "pepper_harvest.png"),
     ];
 
-    public override float CropGrowthTime => 9f;
-    public override float PickingTime => 1.5f;
+    public override float CropGrowthTime => 11f;
+    public override float PickingTime => 3.5f;
     
     public override List<InventoryItem.ITEM_TYPE> HarvestResult =>
     [
         ItemRegistry.Get((nameof(DeathPepper))),
         ItemRegistry.Get(nameof(IchorSeeds)),
     ];
-    public override Vector2Int CropCountToDropRange => new(6, 10);
+    public override Vector2Int CropCountToDropRange => new(4, 6);
     public override string HarvestText => "Harvest <color=#5D1D1D>Death Peppers</color>";
 }

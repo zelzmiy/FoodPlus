@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
+using FoodPlus.Items.Food;
 using FoodPlus.Items.Food.Meals;
 using FoodPlus.Items.Ingrediants;
 using FoodPlus.Items.Seeds;
@@ -26,10 +27,13 @@ public static class ItemRegistry
 
     private static void RegisterFood()
     {
+        s_items.Add(nameof(Burger), CustomItemManager.Add(new Burger()));
         s_items.Add(nameof(CamillaSalad), CustomItemManager.Add(new CamillaSalad()));
+        s_items.Add(nameof(FrenchToast), CustomItemManager.Add(new FrenchToast()));
+        s_items.Add(nameof(GildedSoup), CustomItemManager.Add(new GildedSoup()));
         s_items.Add(nameof(HatefulDish), CustomItemManager.Add(new HatefulDish()));
         s_items.Add(nameof(ItalianDish), CustomItemManager.Add(new ItalianDish()));
-        s_items.Add(nameof(FrenchToast), CustomItemManager.Add(new FrenchToast()));
+        s_items.Add(nameof(SpicyTacos), CustomItemManager.Add(new SpicyTacos()));
     }
 
     private static void RegisterIngredients()

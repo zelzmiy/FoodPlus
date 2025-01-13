@@ -42,8 +42,6 @@ public class Plugin : BaseUnityPlugin
     }
 
 #if DEBUG
-
-
     public void Update()
     {
         // debug

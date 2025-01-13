@@ -29,8 +29,8 @@ internal class TomatoSeeds : CustomCrop
         CreateSprite(CropsPath, "Tomato", "tomato_harvest.png"),
     ];
 
-    public override float CropGrowthTime => 9f;
-    public override float PickingTime => 1.5f;
+    public override float CropGrowthTime => 8f;
+    public override float PickingTime => 2f;
     
     public override List<InventoryItem.ITEM_TYPE> HarvestResult =>
     [

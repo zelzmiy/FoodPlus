@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
+using FoodPlus.Items.Ingrediants;
 using FoodPlus.MealEffects;
 
 namespace FoodPlus.Items.Food;
@@ -42,7 +43,11 @@ public class Burger : CustomMeal
     public override List<List<InventoryItem>> Recipe { get; } =
     [
         [
-
+            new InventoryItem(InventoryItem.ITEM_TYPE.MEAT, 2),
+            new InventoryItem(ItemRegistry.Get(nameof(Bread)), 2),
+            new InventoryItem(InventoryItem.ITEM_TYPE.GRASS, 2),
+            new InventoryItem(ItemRegistry.Get(nameof(Tomato)), 1),
+            new InventoryItem(ItemRegistry.Get(nameof(Onion)), 1),
         ]
     ];
 }
