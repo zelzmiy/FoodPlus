@@ -13,9 +13,9 @@ public static partial class CustomTraitManager
     
     [HarmonyPatch(typeof(FollowerTrait), nameof(FollowerTrait.IsPositiveTrait))]
     [HarmonyPostfix]
-    private static void FollowerTrait_IsPositiveTrait(FollowerTrait.TraitType Type, ref bool __result)
+    private static void FollowerTrait_IsPositiveTrait(FollowerTrait.TraitType traitType, ref bool __result)
     {
-        if (!CustomTraitList.TryGetValue(Type, out var value)) return;
+        if (!CustomTraitList.TryGetValue(traitType, out var value)) return;
         __result = value.Positive;
     }
     

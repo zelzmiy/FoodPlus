@@ -3,7 +3,7 @@ using COTL_API.CustomInventory;
 
 namespace FoodPlus.MealEffects;
 
-public class InjureMouth : CustomFoodEffect
+public class InjureMouthEffect : CustomFoodEffect
 {
     public override string InternalName => "InjureMouthEffect";
 

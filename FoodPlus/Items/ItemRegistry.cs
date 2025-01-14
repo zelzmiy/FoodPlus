@@ -27,29 +27,34 @@ public static class ItemRegistry
 
     private static void RegisterFood()
     {
-        s_items.Add(nameof(Burger), CustomItemManager.Add(new Burger()));
+        s_items.Add(nameof(SpicyTunaSalad), CustomItemManager.Add(new SpicyTunaSalad()));
+        s_items.Add(nameof(DionysianSalad), CustomItemManager.Add(new DionysianSalad()));
+        s_items.Add(nameof(OldOnesSalad), CustomItemManager.Add(new OldOnesSalad()));
         s_items.Add(nameof(CamillaSalad), CustomItemManager.Add(new CamillaSalad()));
         s_items.Add(nameof(FrenchToast), CustomItemManager.Add(new FrenchToast()));
-        s_items.Add(nameof(GildedSoup), CustomItemManager.Add(new GildedSoup()));
         s_items.Add(nameof(HatefulDish), CustomItemManager.Add(new HatefulDish()));
         s_items.Add(nameof(ItalianDish), CustomItemManager.Add(new ItalianDish()));
+        s_items.Add(nameof(RadiantSoup), CustomItemManager.Add(new RadiantSoup()));
+        s_items.Add(nameof(GildedSoup), CustomItemManager.Add(new GildedSoup()));
         s_items.Add(nameof(SpicyTacos), CustomItemManager.Add(new SpicyTacos()));
+        s_items.Add(nameof(GrassRoll), CustomItemManager.Add(new GrassRoll()));
+        s_items.Add(nameof(Burger), CustomItemManager.Add(new Burger()));
     }
 
     private static void RegisterIngredients()
     {
-        s_items.Add(nameof(Wheat), CustomItemManager.Add(new Wheat()));
-        s_items.Add(nameof(Tomato), CustomItemManager.Add(new Tomato()));
-        s_items.Add(nameof(Onion), CustomItemManager.Add(new Onion()));
         s_items.Add(nameof(DeathPepper), CustomItemManager.Add(new DeathPepper()));
+        s_items.Add(nameof(Tomato), CustomItemManager.Add(new Tomato()));
+        s_items.Add(nameof(Wheat), CustomItemManager.Add(new Wheat()));
+        s_items.Add(nameof(Onion), CustomItemManager.Add(new Onion()));
         
         s_items.Add(nameof(Bread), CustomItemManager.Add(new Bread()));
     }
 
     private static void RegisterSeeds()
     {
-        s_items.Add(nameof(WheatSeeds), CustomItemManager.Add(new WheatSeeds()));
         s_items.Add(nameof(TomatoSeeds), CustomItemManager.Add(new TomatoSeeds()));
+        s_items.Add(nameof(WheatSeeds), CustomItemManager.Add(new WheatSeeds()));
         s_items.Add(nameof(OnionSeeds), CustomItemManager.Add(new OnionSeeds()));
         s_items.Add(nameof(IchorSeeds), CustomItemManager.Add(new IchorSeeds()));
     }

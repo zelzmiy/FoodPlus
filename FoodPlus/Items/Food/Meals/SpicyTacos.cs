@@ -35,7 +35,7 @@ public class SpicyTacos : CustomMeal
         },
         new()
         {
-            MealEffectType = FoodEffectRegistry.Get(nameof(InjureMouth)),
+            MealEffectType = FoodEffectRegistry.Get(nameof(InjureMouthEffect)),
             Chance = 60,
         },
     ];

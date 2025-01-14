@@ -15,5 +15,7 @@ public static class TraitRegistry
     public static void RegisterTraits()
     {
         s_items.Add(nameof(NeonPooperTrait), CustomTraitManager.Add(new NeonPooperTrait()));
+        s_items.Add(nameof(SpiceHaterTrait), CustomTraitManager.Add(new SpiceHaterTrait()));
+        s_items.Add(nameof(SpiceLoverTrait), CustomTraitManager.Add(new SpiceLoverTrait()));
     }
 }

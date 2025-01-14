@@ -45,6 +45,7 @@
 
     <ItemGroup>
         <Folder Include="../Assets/*"/>
+        <Folder Include="Items\Food\Drinks\" />
     </ItemGroup>
     
     <ItemGroup>
