@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using FoodPlus.CustomTraits;
 using FoodPlus.Items;
 using FoodPlus.Items.Ingrediants;
 using FoodPlus.Items.Seeds;
@@ -30,8 +31,11 @@ public class Plugin : BaseUnityPlugin
     private void OnEnable()
     {
         Harmony.PatchAll();
+        
+        TraitRegistry.RegisterTraits();
         FoodEffectRegistry.RegisterFoodEffects();
         ItemRegistry.RegisterItems();
+        
         LogInfo($"Loaded {PluginName}!");
     }
 

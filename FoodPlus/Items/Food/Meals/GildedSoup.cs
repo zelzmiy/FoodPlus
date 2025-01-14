@@ -10,7 +10,7 @@ namespace FoodPlus.Items.Food.Meals;
 public class GildedSoup : CustomMeal
 {
     public override string InternalName => "Gilded_Soup";
-    public override float TummyRating => 1f;
+    public override float TummyRating => 0.5f;
     public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Gilded Soup";
@@ -44,13 +44,13 @@ public class GildedSoup : CustomMeal
     [
         new()
         {
-          MealEffectType = FoodEffectRegistry.Get(nameof(GainGoldenPooperTraitEffect)),
+          MealEffectType = FoodEffectRegistry.Get(nameof(GainRoyalPooperTraitEffect)),
           Chance = 100,
         },
         new()
         {
             MealEffectType = CookingData.MealEffectType.InstantlyDie,
-            Chance = 20,
+            Chance = 10,
         },
     ];
 

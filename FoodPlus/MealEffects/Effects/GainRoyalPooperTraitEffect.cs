@@ -6,9 +6,9 @@ using Lamb.UI.FollowerSelect;
 
 namespace FoodPlus.MealEffects;
 
-public class GainGoldenPooperTraitEffect : CustomFoodEffect
+public class GainRoyalPooperTraitEffect : CustomFoodEffect
 {
-    public override string InternalName => "GainGoldenPooperTraitEffect";
+    public override string InternalName => "GainRoyalPooperTraitEffect";
     
     public override string Description() => "chance of follower of becoming a royal pooper";
 

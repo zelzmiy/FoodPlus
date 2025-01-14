@@ -14,7 +14,8 @@ public static class FoodEffectRegistry
 
     public static void RegisterFoodEffects()
     {
-        s_items.Add(nameof(GainGoldenPooperTraitEffect), CustomFoodEffectManager.Add(new GainGoldenPooperTraitEffect()));
+        s_items.Add(nameof(GainRoyalPooperTraitEffect), CustomFoodEffectManager.Add(new GainRoyalPooperTraitEffect()));
+        s_items.Add(nameof(GainNeonPooperTraitEffect), CustomFoodEffectManager.Add(new GainNeonPooperTraitEffect()));
         s_items.Add(nameof(GainPettableTraitEffect), CustomFoodEffectManager.Add(new GainPettableTraitEffect()));
         s_items.Add(nameof(FallInLoveEffect), CustomFoodEffectManager.Add(new FallInLoveEffect()));
         s_items.Add(nameof(RemoveSpyEffect), CustomFoodEffectManager.Add(new RemoveSpyEffect()));
