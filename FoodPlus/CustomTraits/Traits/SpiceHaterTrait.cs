@@ -5,11 +5,11 @@ namespace FoodPlus.CustomTraits.Traits;
 [HarmonyPatch]
 public class SpiceHaterTrait : CustomTrait
 {
-    public override string InternalName => "Spice_Lover";
+    public override string InternalName => "Spice_Hater";
 
     public override bool Positive => true;
     
-    public override TraitFlags TraitFlags => TraitFlags.StartingTrait | TraitFlags.ExcludeFromMating;
+    public override TraitFlags TraitFlags => TraitFlags.STARTING_TRAIT | TraitFlags.EXCLUDE_FROM_MATING;
     
     public override string LocalizedTitle() => "Spice Hater";
     

@@ -14,12 +14,11 @@ public class SpiceLoverTrait : CustomTrait
         TraitRegistry.Get(nameof(SpiceHaterTrait))
     ];
 
-    public override TraitFlags TraitFlags => TraitFlags.StartingTrait | TraitFlags.ExcludeFromMating;
+    public override TraitFlags TraitFlags => TraitFlags.STARTING_TRAIT | TraitFlags.EXCLUDE_FROM_MATING;
     
     public override string LocalizedTitle() => "Spice Lover";
     
     public override string LocalizedDescription() => "Loves Spicy Food.";
 
     public override Sprite Icon => CreateSprite(TraitsPath, "Spice_Lover.png");
-
 }
