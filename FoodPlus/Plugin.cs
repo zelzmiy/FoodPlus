@@ -20,12 +20,15 @@ public class Plugin : BaseUnityPlugin
     internal static ManualLogSource Log;
     internal readonly static Harmony Harmony = new(PluginGuid);
 
+    public static Plugin Instance { get; private set; } = null!;
+    
     internal static string PluginPath;
 
     private void Awake()
     {
         Log = Logger;
         PluginPath = Path.GetDirectoryName(Info.Location);
+        Instance = this;
     }
 
     private void OnEnable()

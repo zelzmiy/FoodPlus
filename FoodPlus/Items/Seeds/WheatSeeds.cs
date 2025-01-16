@@ -40,6 +40,6 @@ internal class WheatSeeds : CustomCrop
     public override Vector2Int CropCountToDropRange => new(8, 15);
     public override string HarvestText => "Pick <color=#CACB39>Wheat</color>";
     
-    public override int DungeonChestMinAmount { get; } = 10;
-    public override int DungeonChestMaxAmount { get; } = 18;
+    public override int DungeonChestMinAmount => 10;
+    public override int DungeonChestMaxAmount => 18;
 }

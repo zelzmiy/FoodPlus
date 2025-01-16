@@ -40,6 +40,6 @@ internal class IchorSeeds : CustomCrop
     public override Vector2Int CropCountToDropRange => new(4, 6);
     public override string HarvestText => "Harvest <color=#5D1D1D>Death Peppers</color>";
 
-    public override int DungeonChestMinAmount { get; } = 8;
-    public override int DungeonChestMaxAmount { get; } = 16;
+    public override int DungeonChestMinAmount => 8;
+    public override int DungeonChestMaxAmount => 16;
 }

@@ -62,6 +62,7 @@ public static class ItemRegistry
     private static void RegisterSeeds()
     {
         s_items.Add(nameof(TomatoSeeds), CustomItemManager.Add(new TomatoSeeds()));
+        s_items.Add(nameof(GrassSeeds), CustomItemManager.Add(new GrassSeeds()));
         s_items.Add(nameof(WheatSeeds), CustomItemManager.Add(new WheatSeeds()));
         s_items.Add(nameof(OnionSeeds), CustomItemManager.Add(new OnionSeeds()));
         s_items.Add(nameof(IchorSeeds), CustomItemManager.Add(new IchorSeeds()));
