@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
 using FoodPlus.Items.Food;
+using FoodPlus.Items.Food.Drinks;
 using FoodPlus.Items.Food.Meals;
 using FoodPlus.Items.Ingrediants;
 using FoodPlus.Items.Seeds;
@@ -18,14 +19,21 @@ public static class ItemRegistry
     
     public static void RegisterItems()
     {
-        // i may have to switch to lazy loading since things have to be registered at a very specific order
+        // I may have to switch to lazy loading since things have to be registered at a very specific order
         // specifically ingredients before food, since food needs ingredients for recipe
         RegisterSeeds();
         RegisterIngredients();
-        RegisterFood();
+        RegisterMeals();
+        RegisterDrinks();
     }
 
-    private static void RegisterFood()
+    private static void RegisterDrinks()
+    {
+        s_items.Add(nameof(TomatoJuice), CustomItemManager.Add(new TomatoJuice()));
+        s_items.Add(nameof(Whiskey), CustomItemManager.Add(new Whiskey()));
+    }
+
+    private static void RegisterMeals()
     {
         s_items.Add(nameof(SpicyTunaSalad), CustomItemManager.Add(new SpicyTunaSalad()));
         s_items.Add(nameof(DionysianSalad), CustomItemManager.Add(new DionysianSalad()));
