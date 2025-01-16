@@ -38,4 +38,7 @@ public class GrassSeeds : CustomCrop
     ];
     public override Vector2Int CropCountToDropRange => new(8, 12);
     public override string HarvestText => "Harvest <color=#8eF48e>Grass</color>";
+    
+    public override int DungeonChestMinAmount { get; } = 12;
+    public override int DungeonChestMaxAmount { get; } = 18;
 }

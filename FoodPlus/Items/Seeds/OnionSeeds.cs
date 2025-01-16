@@ -38,4 +38,7 @@ internal class OnionSeeds : CustomCrop
     ];
     public override Vector2Int CropCountToDropRange => new(1, 4);
     public override string HarvestText => "Harvest <color=#cc72f2>Onion</color>";
+    
+    public override int DungeonChestMinAmount { get; } = 4;
+    public override int DungeonChestMaxAmount { get; } = 12;
 }

@@ -39,4 +39,7 @@ internal class TomatoSeeds : CustomCrop
     ];
     public override Vector2Int CropCountToDropRange => new(3, 6);
     public override string HarvestText => "Pick <color=#CD4040>Tomatoes</color>";
+    
+    public override int DungeonChestMinAmount { get; } = 12;
+    public override int DungeonChestMaxAmount { get; } = 20;
 }
