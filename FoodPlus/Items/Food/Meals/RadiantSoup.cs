@@ -11,7 +11,6 @@ public class RadiantSoup : CustomMeal
 {
     public override string InternalName => "Radiant_Soup";
     public override float TummyRating => 0.5f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Radiant Soup";
     public override string LocalizedLore() => "";

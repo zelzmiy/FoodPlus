@@ -9,7 +9,6 @@ public class ItalianDish : CustomMeal
 {
     public override string InternalName => "Italian_Dish";
     public override float TummyRating => 1f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Spaghetti & Meatballs";
     public override string LocalizedLore() => "Eyeballs notwithstanding";

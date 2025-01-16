@@ -9,7 +9,6 @@ public class Burger : CustomMeal
 {
     public override string InternalName => "Burger";
     public override float TummyRating => 1f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Burger";
     public override string LocalizedLore() => "";

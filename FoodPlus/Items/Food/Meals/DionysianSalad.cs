@@ -9,7 +9,6 @@ public class DionysianSalad : CustomMeal
 {
     public override string InternalName => "Dionysian_Salad";
     public override float TummyRating => 0.15f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Dionysian Salad";
     public override string LocalizedLore() => "";

@@ -9,7 +9,6 @@ public class SpicyTacos : CustomMeal
 {
     public override string InternalName => "Spicy_Tacos";
     public override float TummyRating => 0.66f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Spicy Tacos";
     public override string LocalizedLore() => "";

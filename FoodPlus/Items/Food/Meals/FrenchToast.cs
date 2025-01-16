@@ -9,9 +9,8 @@ public class FrenchToast : CustomMeal
 {
     public override string InternalName => "French_Toast";
     public override float TummyRating => 1f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
-    public override string LocalizedName() => "French Toast";
+    public override string LocalizedName() => "Lifebringer Toast";
     public override string LocalizedLore() => "Sweet Carbs";
     public override string LocalizedDescription() => "Egg infused bread toasted to perfection";
     public override Sprite Sprite => CreateSprite(MealsPath, "French_Toast.png");

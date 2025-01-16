@@ -8,7 +8,6 @@ public class HatefulDish : CustomMeal
 {
     public override string InternalName => "Hateful_Dish";
     public override float TummyRating => 0.15f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Hateful Dish";
     public override string LocalizedLore() => "Filled with malice";

@@ -9,12 +9,11 @@ public class GrassRoll : CustomMeal
 {
     public override string InternalName => "Grass_Roll";
     public override float TummyRating => 0.33f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Grass Roll";
     public override string LocalizedLore() => "";
     public override string LocalizedDescription() => "A fishy meal";
-    public override Sprite Sprite => CreateSprite(MealsPath, "Burger.png");
+    public override Sprite Sprite => CreateSprite(MealsPath, "Grass_Roll.png");
     public override Sprite InventoryIcon => Sprite;
     public override bool IsFood => true;
     public override int FoodSatitation => 85;

@@ -10,7 +10,6 @@ public class OldOnesSalad : CustomMeal
 {
     public override string InternalName => "Old_Ones_Salad";
     public override float TummyRating => 1f;
-    public override InventoryItem.ITEM_TYPE ItemPickUpToImitate => InventoryItem.ITEM_TYPE.MEAL;
     public override CustomInventoryItemType InventoryItemType => CustomInventoryItemType.FOOD;
     public override string LocalizedName() => "Old One's Salad";
     public override string LocalizedLore() => "";
