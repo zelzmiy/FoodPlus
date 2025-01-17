@@ -15,8 +15,8 @@ public class HatefulDish : CustomMeal
     public override Sprite Sprite => CreateSprite(MealsPath, "Hateful_Dish.png");
     public override Sprite InventoryIcon => Sprite;
     public override bool IsFood => true;
-    public override int FoodSatitation => 0;
-    public override MealQuality Quality => MealQuality.GOOD;
+    public override int FoodSatitation => 8;
+    public override MealQuality Quality => MealQuality.BAD;
     public override int SatiationLevel => 0;
 
     public override CookingData.MealEffect[] MealEffects { get; } =

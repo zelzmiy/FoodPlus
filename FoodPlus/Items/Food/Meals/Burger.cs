@@ -16,7 +16,7 @@ public class Burger : CustomMeal
     public override Sprite Sprite => CreateSprite(MealsPath, "Burger.png");
     public override Sprite InventoryIcon => Sprite;
     public override bool IsFood => true;
-    public override int FoodSatitation => 85;
+    public override int FoodSatitation => 125;
     public override MealQuality Quality => MealQuality.GOOD;
     public override int SatiationLevel => 3;
 
@@ -25,12 +25,12 @@ public class Burger : CustomMeal
         new()
         {
             MealEffectType = CookingData.MealEffectType.DropLoot,
-            Chance = 100,
+            Chance = 15,
         },
         new()
         {
             MealEffectType = CookingData.MealEffectType.RemovesDissent,
-            Chance = 100,
+            Chance = 45,
         },
         new()
         {

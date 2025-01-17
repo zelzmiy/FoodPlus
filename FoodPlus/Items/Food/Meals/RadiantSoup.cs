@@ -15,23 +15,21 @@ public class RadiantSoup : CustomMeal
     public override string LocalizedName() => "Radiant Soup";
     public override string LocalizedLore() => "";
     public override string LocalizedDescription() => 
-        "<size=22><sprite name=\"IconTexture_19\">" +
         "<sprite name=\"IconTexture_21\">" +
         "<sprite name=\"IconTexture_32\">" +
         "<sprite name=\"IconTexture_31\">" +
-        "<sprite name=\"IconTexture_16\">" +
+        "<sprite name=\"IconTexture_21\">" +
         "<sprite name=\"IconTexture_17\">" +
         "<sprite name=\"IconTexture_18\">" +
         "<sprite name=\"IconTexture_17\">" +
         "<sprite name=\"IconTexture_18\">" +
         "<sprite name=\"IconTexture_29\">" +
         "<sprite name=\"IconTexture_32\">" +
-        "<sprite name=\"IconTexture_23\">" +
+        "<sprite name=\"IconTexture_32\">" +
         "<sprite name=\"IconTexture_18\">" +
-        "<sprite name=\"IconTexture_19\">" +
-        "<sprite name=\"IconTexture_121\">" +
+        "<sprite name=\"IconTexture_15\">" +
         "<sprite name=\"IconTexture_26\">" +
-        "<sprite name=\"IconTexture_28\">";
+        "<sprite name=\"IconTexture_21\">";
     public override Sprite Sprite => CreateSprite(MealsPath, "Radiant_Soup.png");
     public override Sprite InventoryIcon => Sprite;
     public override bool IsFood => true;

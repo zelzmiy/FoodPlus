@@ -14,7 +14,7 @@ public class ShuffleColorsEffect : CustomFoodEffect
 
     public override Action<FollowerBrain> Effect => (brain) =>
     {
-        brain.Info.SkinColour = UnityEngine.Random.Range(0, 11);
+        brain.Info.SkinColour = UnityEngine.Random.Range(0,  WorshipperData.Instance.GlobalColourList.Count);
     };
 
 }

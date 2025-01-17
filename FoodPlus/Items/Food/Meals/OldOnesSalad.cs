@@ -49,9 +49,9 @@ public class OldOnesSalad : CustomMeal
     [
         [
             new InventoryItem(ItemRegistry.Get(nameof(Tomato)), 2),
-            new InventoryItem(ItemRegistry.Get(nameof(Onion)), 1),
-            new InventoryItem(ItemRegistry.Get(nameof(DeathPepper)), 1),
-            new InventoryItem(InventoryItem.ITEM_TYPE.BEETROOT, 1),
+            new InventoryItem(ItemRegistry.Get(nameof(Onion)), 3),
+            new InventoryItem(ItemRegistry.Get(nameof(DeathPepper)), 2),
+            new InventoryItem(InventoryItem.ITEM_TYPE.BEETROOT, 4),
         ]
     ];
 }

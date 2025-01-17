@@ -17,8 +17,8 @@ public class DionysianSalad : CustomMeal
     public override Sprite InventoryIcon => Sprite;
     public override bool IsFood => true;
     public override int FoodSatitation => 0;
-    public override MealQuality Quality => MealQuality.GOOD;
-    public override int SatiationLevel => 0;
+    public override MealQuality Quality => MealQuality.NORMAL;
+    public override int SatiationLevel => 2;
 
     public override CookingData.MealEffect[] MealEffects { get; } =
     [

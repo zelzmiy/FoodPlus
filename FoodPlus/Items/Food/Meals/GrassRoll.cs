@@ -25,18 +25,13 @@ public class GrassRoll : CustomMeal
         new()
         {
             MealEffectType = CookingData.MealEffectType.DropLoot,
-            Chance = 100,
+            Chance = 20,
         },
         new()
         {
             MealEffectType = CookingData.MealEffectType.RemovesDissent,
-            Chance = 100,
+            Chance = 25,
         },
-        new()
-        {
-            MealEffectType = FoodEffectRegistry.Get(nameof(GainNeonPooperTraitEffect)),
-            Chance = 100
-        }
     ];
 
     public override List<List<InventoryItem>> Recipe { get; } =
