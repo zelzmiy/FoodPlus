@@ -1,7 +1,12 @@
 using System;
 using System.IO;
+using System.Linq;
+using COTL_API.CustomInventory;
+using COTL_API.CustomSettings;
+using COTL_API.CustomSettings.Elements;
 using FoodPlus.CustomTraits;
 using FoodPlus.Items;
+using FoodPlus.Items.Food.Meals;
 using FoodPlus.Items.Ingrediants;
 using FoodPlus.Items.Seeds;
 using FoodPlus.MealEffects;
@@ -21,8 +26,9 @@ public class Plugin : BaseUnityPlugin
     internal readonly static Harmony Harmony = new(PluginGuid);
 
     public static Plugin Instance { get; private set; } = null!;
-    
+
     internal static string PluginPath;
+
 
     private void Awake()
     {
@@ -31,13 +37,29 @@ public class Plugin : BaseUnityPlugin
         Instance = this;
     }
 
+    public static readonly string[] TacoRecipeOptions =
+    [
+        "Meat Morsel",
+        "Meat",
+    ];
+
+    public static HorizontalSelector FirstPriorityTacoRecipe;
+
     private void OnEnable()
     {
         Harmony.PatchAll();
-        
+
         TraitRegistry.RegisterTraits();
         FoodEffectRegistry.RegisterFoodEffects();
         ItemRegistry.RegisterItems();
+
+
+        FirstPriorityTacoRecipe = CustomSettingsManager.AddSavedHorizontalSelector(
+            "FoodPlus",
+            PluginGuid,
+            "Taco Primary Recipe",
+            "Meat Morsel", TacoRecipeOptions);
+        
         
         LogInfo($"Loaded {PluginName}!");
     }
@@ -64,13 +86,14 @@ public class Plugin : BaseUnityPlugin
             Inventory.AddItem(ItemRegistry.Get(nameof(Bread)), 25);
 
             Inventory.AddItem(ItemRegistry.Get(nameof(DeathPepper)), 25);
-            Inventory.AddItem(ItemRegistry.Get(nameof(Onion)), 25);
             Inventory.AddItem(ItemRegistry.Get(nameof(Tomato)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(Onion)), 25);
             Inventory.AddItem(ItemRegistry.Get(nameof(Wheat)), 25);
 
-            Inventory.AddItem(ItemRegistry.Get(nameof(IchorSeeds)), 25);
-            Inventory.AddItem(ItemRegistry.Get(nameof(OnionSeeds)), 25);
             Inventory.AddItem(ItemRegistry.Get(nameof(TomatoSeeds)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(IchorSeeds)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(GrassSeeds)), 25);
+            Inventory.AddItem(ItemRegistry.Get(nameof(OnionSeeds)), 25);
             Inventory.AddItem(ItemRegistry.Get(nameof(WheatSeeds)), 25);
         }
 
@@ -80,12 +103,6 @@ public class Plugin : BaseUnityPlugin
             {
                 Inventory.SetItemQuantity((int)value, 100);
             }
-        }
-
-        //give self rainbow poop for testing
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Inventory.AddItem(InventoryItem.ITEM_TYPE.POOP_RAINBOW, 5);
         }
     }
 }

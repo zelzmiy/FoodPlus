@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using COTL_API.CustomInventory;
 using FoodPlus.Items.Ingrediants;
 using FoodPlus.MealEffects;
@@ -24,8 +26,9 @@ public class SpicyTacos : CustomMeal
     [
         new()
         {
-          MealEffectType = CookingData.MealEffectType.CausesWorkAllNight,
-          Chance = 40,
+            // TODO replace this with a working version, this one does nothing :3
+            MealEffectType = CookingData.MealEffectType.CausesWorkAllNight,
+            Chance = 40,
         },
         new()
         {
@@ -39,25 +42,54 @@ public class SpicyTacos : CustomMeal
         },
     ];
 
-    public override List<List<InventoryItem>> Recipe { get; } =
+    public override List<List<InventoryItem>> Recipe => GetRecipe();
+
+    // worst code ever!!!!!!!!
+    private static List<List<InventoryItem>> GetRecipe()
+    {
+        try
+        {
+            var duplicate = Plugin.TacoRecipeOptions.ToList();
+            duplicate.Remove(Plugin.FirstPriorityTacoRecipe.Value);
+            return
+            [
+                GetIngredients(Plugin.FirstPriorityTacoRecipe.Value),
+                GetIngredients(duplicate[0])
+            ];
+        }
+        catch (NullReferenceException)
+        {
+            return
+            [
+                s_meatMorselRecipe,
+                s_meatRecipe,
+            ];
+        }
+    }
+
+    private static List<InventoryItem> GetIngredients(string s)
+    {
+        return (s) switch
+        {
+            "Meat Morsel" => s_meatMorselRecipe,
+            "Meat" => s_meatRecipe,
+            _ => throw new ArgumentException("Invalid Ingredient Name"),
+        };
+    }
+
+    private static readonly List<InventoryItem> s_meatMorselRecipe =
     [
-        [
-            new InventoryItem(ItemRegistry.Get(nameof(Wheat)), 12),
-            new InventoryItem(ItemRegistry.Get(nameof(Tomato)), 2),
-            new InventoryItem(ItemRegistry.Get(nameof(DeathPepper)), 1),
-            new InventoryItem(InventoryItem.ITEM_TYPE.MEAT_MORSEL, 4),
-        ],
-        [
-            new InventoryItem(ItemRegistry.Get(nameof(Wheat)), 12),
-            new InventoryItem(ItemRegistry.Get(nameof(Tomato)), 2),
-            new InventoryItem(ItemRegistry.Get(nameof(DeathPepper)), 1),
-            new InventoryItem(InventoryItem.ITEM_TYPE.MEAT, 2),
-        ],
-        [
-            new InventoryItem(ItemRegistry.Get(nameof(Wheat)), 12),
-            new InventoryItem(ItemRegistry.Get(nameof(Tomato)), 2),
-            new InventoryItem(ItemRegistry.Get(nameof(DeathPepper)), 1),
-            new InventoryItem(InventoryItem.ITEM_TYPE.FOLLOWER_MEAT, 1),
-        ]
+        new(ItemRegistry.Get(nameof(Wheat)), 12),
+        new(ItemRegistry.Get(nameof(Tomato)), 2),
+        new(ItemRegistry.Get(nameof(DeathPepper)), 1),
+        new(InventoryItem.ITEM_TYPE.MEAT_MORSEL, 4),
+    ];
+
+    private static readonly List<InventoryItem> s_meatRecipe =
+    [
+        new(ItemRegistry.Get(nameof(Wheat)), 12),
+        new(ItemRegistry.Get(nameof(Tomato)), 2),
+        new(ItemRegistry.Get(nameof(DeathPepper)), 1),
+        new(InventoryItem.ITEM_TYPE.MEAT, 2),
     ];
 }
