@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
 
 namespace FoodPlus.Items.Seeds;
-
+[CropToRegister]
 internal class TomatoSeeds : CustomCrop
 {
     public override string InternalName => "Tomato_Seeds";

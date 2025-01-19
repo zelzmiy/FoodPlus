@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
+using FoodPlus.Utils;
 
 namespace FoodPlus.Items.Food.Drinks;
 
+[DrinkToRegister]
 internal class TomatoJuice : CustomDrink
 {
     public override string InternalName => "Tomato_Juice";

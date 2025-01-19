@@ -3,6 +3,7 @@ using System.Collections.Generic;
 namespace FoodPlus.CustomTraits.Traits;
 
 [HarmonyPatch]
+[TraitToRegister]
 public class NeonPooperTrait : CustomTrait
      {
          public override string InternalName => "Neon_Pooper";

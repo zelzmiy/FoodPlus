@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
 using FoodPlus.MealEffects;
+using FoodPlus.MealEffects.Effects;
 
 namespace FoodPlus.Items.Food.Meals;
-
+[MealToRegister]
 public class FrenchToast : CustomMeal
 {
     public override string InternalName => "French_Toast";

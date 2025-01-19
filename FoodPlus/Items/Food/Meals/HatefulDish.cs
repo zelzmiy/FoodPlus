@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
 
 namespace FoodPlus.Items.Food.Meals;
-
+[MealToRegister]
 public class HatefulDish : CustomMeal
 {
     public override string InternalName => "Hateful_Dish";

@@ -1,7 +1,8 @@
 using COTL_API.CustomInventory;
 
-namespace FoodPlus.Items.Ingrediants;
+namespace FoodPlus.Items.Ingredients;
 
+[ItemToRegister]
 public class Bread : CustomInventoryItem
 {
     public override string InternalName => "Bread";

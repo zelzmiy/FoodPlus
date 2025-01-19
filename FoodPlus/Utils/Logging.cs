@@ -1,10 +1,8 @@
-﻿using BepInEx.Logging;
-
-namespace FoodPlus;
+﻿namespace FoodPlus.Utils;
 
 public static class Logging
 {
-    public static ManualLogSource Logger => Plugin.Log;
+    private static ManualLogSource Logger => Plugin.Log;
     
     public static void Log(LogLevel level, string message) => Logger.Log(level, message);
     public static void LogInfo(string message) => Logger.LogInfo(message);

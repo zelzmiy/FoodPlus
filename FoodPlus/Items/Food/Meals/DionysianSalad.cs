@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
 using FoodPlus.MealEffects;
+using FoodPlus.MealEffects.Effects;
 
 namespace FoodPlus.Items.Food.Meals;
-
+[MealToRegister]
 public class DionysianSalad : CustomMeal
 {
     public override string InternalName => "Dionysian_Salad";

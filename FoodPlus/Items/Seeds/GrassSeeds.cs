@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using COTL_API.CustomInventory;
 
 namespace FoodPlus.Items.Seeds;
-
+[CropToRegister]
 public class GrassSeeds : CustomCrop
 {
     public override string InternalName => "Grass_Seeds";

@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
 using FoodPlus.CustomTraits;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
 using FoodPlus.MealEffects;
+using FoodPlus.MealEffects.Effects;
 
 namespace FoodPlus.Items.Food.Meals;
-
+[MealToRegister]
 public class OldOnesSalad : CustomMeal
 {
     public override string InternalName => "Old_Ones_Salad";

@@ -1,4 +1,4 @@
-namespace FoodPlus;
+namespace FoodPlus.Utils;
 
 public static class Constants
 {

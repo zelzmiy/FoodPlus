@@ -4,8 +4,8 @@ using System.Linq;
 using COTL_API.CustomInventory;
 using Lamb.UI.FollowerSelect;
 
-namespace FoodPlus.MealEffects;
-
+namespace FoodPlus.MealEffects.Effects;
+[FoodEffectToRegister]
 public class FallInLoveEffect : CustomFoodEffect
 {
     public override string InternalName => "FallInLoveEffect";

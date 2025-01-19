@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
 using FoodPlus.MealEffects;
+using FoodPlus.MealEffects.Effects;
 
 namespace FoodPlus.Items.Food.Meals;
-
+[MealToRegister]
 public class SpicyTacos : CustomMeal
 {
     public override string InternalName => "Spicy_Tacos";
@@ -26,8 +27,7 @@ public class SpicyTacos : CustomMeal
     [
         new()
         {
-            // TODO replace this with a working version, this one does nothing :3
-            MealEffectType = CookingData.MealEffectType.CausesWorkAllNight,
+            MealEffectType = FoodEffectRegistry.Get(nameof(SpeedUpEffect)),
             Chance = 40,
         },
         new()

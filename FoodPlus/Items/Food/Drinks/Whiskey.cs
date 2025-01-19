@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
 using FoodPlus.MealEffects;
+using FoodPlus.MealEffects.Effects;
 
 namespace FoodPlus.Items.Food.Drinks;
 
 // Todo: come up with a "friendly" way to say whiskey, kind of like how wine is called "grape nectar"
 // wheat broth? gross... gluten hash? sounds... sticky
 // durum drink? good enough for now
+[DrinkToRegister]
 internal class Whiskey : CustomDrink
 {
     public override string InternalName => "Whiskey";

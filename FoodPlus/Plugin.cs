@@ -7,7 +7,7 @@ using COTL_API.CustomSettings.Elements;
 using FoodPlus.CustomTraits;
 using FoodPlus.Items;
 using FoodPlus.Items.Food.Meals;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
 using FoodPlus.Items.Seeds;
 using FoodPlus.MealEffects;
 

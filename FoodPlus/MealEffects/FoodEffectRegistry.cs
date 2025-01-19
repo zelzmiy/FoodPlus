@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using COTL_API.CustomInventory;
 
 namespace FoodPlus.MealEffects;
@@ -14,17 +17,13 @@ public static class FoodEffectRegistry
 
     public static void RegisterFoodEffects()
     {
-        s_items.Add(nameof(GainRoyalPooperTraitEffect), CustomFoodEffectManager.Add(new GainRoyalPooperTraitEffect()));
-        s_items.Add(nameof(GainNeonPooperTraitEffect), CustomFoodEffectManager.Add(new GainNeonPooperTraitEffect()));
-        s_items.Add(nameof(GainPettableTraitEffect), CustomFoodEffectManager.Add(new GainPettableTraitEffect()));
-        s_items.Add(nameof(RemoveTerrifiedEffect), CustomFoodEffectManager.Add(new RemoveTerrifiedEffect()));
-        s_items.Add(nameof(GainPolyTraitEffect), CustomFoodEffectManager.Add(new GainPolyTraitEffect()));
-        s_items.Add(nameof(ShuffleColorsEffect), CustomFoodEffectManager.Add(new ShuffleColorsEffect()));
-        s_items.Add(nameof(RemoveSleepyEffect), CustomFoodEffectManager.Add(new RemoveSleepyEffect()));
-        s_items.Add(nameof(InjureMouthEffect), CustomFoodEffectManager.Add(new InjureMouthEffect()));
-        s_items.Add(nameof(FallInLoveEffect), CustomFoodEffectManager.Add(new FallInLoveEffect()));
-        s_items.Add(nameof(RemoveSpyEffect), CustomFoodEffectManager.Add(new RemoveSpyEffect()));
-        s_items.Add(nameof(GainSinHalf), CustomFoodEffectManager.Add(new GainSinHalf()));
-        s_items.Add(nameof(GainSinFull), CustomFoodEffectManager.Add(new GainSinFull()));
+        Assembly.GetExecutingAssembly()
+            .GetTypes()
+            .Where(x => x.GetCustomAttribute<FoodEffectToRegister>() != null)
+            .Do((type) =>
+            {
+                s_items.Add(type.Name, CustomFoodEffectManager.Add((CustomFoodEffect)Activator.CreateInstance(type)));
+            });
     }
+    
 }

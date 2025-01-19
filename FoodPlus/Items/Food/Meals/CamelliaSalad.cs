@@ -4,7 +4,7 @@ using COTL_API.CustomInventory;
 using static CookingData;
 
 namespace FoodPlus.Items.Food.Meals;
-
+[MealToRegister]
 internal class CamillaSalad : CustomMeal
 {
     public override string InternalName => "Camilla_Salad";

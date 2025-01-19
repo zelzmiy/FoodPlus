@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using COTL_API.CustomInventory;
-using Lamb.UI.FollowerSelect;
 
-namespace FoodPlus.MealEffects;
-
+namespace FoodPlus.MealEffects.Effects;
+[FoodEffectToRegister]
 public class GainPolyTraitEffect : CustomFoodEffect
 {
     public override string InternalName => "GainPolyTraitEffect";

@@ -1,9 +1,8 @@
 using System;
 using COTL_API.CustomInventory;
-using Random = System.Random;
 
-namespace FoodPlus.MealEffects;
-
+namespace FoodPlus.MealEffects.Effects;
+[FoodEffectToRegister]
 public class ShuffleColorsEffect : CustomFoodEffect
 {
     public override string InternalName => "ShuffleColorsEffect";

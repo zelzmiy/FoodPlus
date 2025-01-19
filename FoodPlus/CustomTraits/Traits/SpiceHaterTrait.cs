@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-
 namespace FoodPlus.CustomTraits.Traits;
 
 [HarmonyPatch]
+[TraitToRegister]
 public class SpiceHaterTrait : CustomTrait
 {
     public override string InternalName => "Spice_Hater";

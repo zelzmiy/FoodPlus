@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
+using FoodPlus.Items.Ingredients;
 using FoodPlus.MealEffects;
+using FoodPlus.MealEffects.Effects;
 using src.UI.InfoCards;
 
 namespace FoodPlus.Items.Food.Meals;
 
 [HarmonyPatch]
+[MealToRegister]
 public class GildedSoup : CustomMeal
 {
     public override string InternalName => "Gilded_Soup";

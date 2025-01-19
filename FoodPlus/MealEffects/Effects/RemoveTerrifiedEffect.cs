@@ -1,8 +1,8 @@
 using System;
 using COTL_API.CustomInventory;
 
-namespace FoodPlus.MealEffects;
-
+namespace FoodPlus.MealEffects.Effects;
+[FoodEffectToRegister]
 public class RemoveTerrifiedEffect : CustomFoodEffect
 {
     public override string InternalName => "RemoveTerrifiedEffect";

@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using COTL_API.CustomInventory;
-using FoodPlus.Items.Ingrediants;
-using FoodPlus.MealEffects;
 
-namespace FoodPlus.Items.Food;
-
+namespace FoodPlus.Items.Food.Meals;
+[MealToRegister]
 public class GrassRoll : CustomMeal
 {
     public override string InternalName => "Grass_Roll";

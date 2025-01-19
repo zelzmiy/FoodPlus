@@ -1,8 +1,8 @@
 using COTL_API.CustomInventory;
 using FoodPlus.Items.Seeds;
 
-namespace FoodPlus.Items.Ingrediants;
-
+namespace FoodPlus.Items.Ingredients;
+[ItemToRegister]
 public class DeathPepper : CustomInventoryItem
 {
     public override string InternalName => "Death_Pepper";
